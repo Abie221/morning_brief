@@ -1,12 +1,14 @@
 {
-  "current_day": 2,
+  "current_day": 3,
   "recent_people": [
-    "Carol Dweck"
+    "Carol Dweck",
+    "Richard Feynman"
   ],
   "recent_principles": [
-    "Premeditatio malorum"
+    "Premeditatio malorum",
+    "Show your work"
   ],
-  "yesterday_topic": "Calibrating the path",
-  "last_run": "2026-04-28T03:39:22.366921+00:00",
+  "yesterday_topic": "Vectors and dot products",
+  "last_run": "2026-04-28T04:08:16.471407+00:00",
   "replies": []
 }
