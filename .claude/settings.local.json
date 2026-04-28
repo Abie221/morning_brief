@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//Users/abie221/Desktop/**)",
+      "Bash(I/Morning-brief -type f)"
+    ]
+  }
+}

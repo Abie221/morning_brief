@@ -1,0 +1,398 @@
+# people.yaml — morning brief inspiration library
+#
+# Each entry feeds the LLM prompt that generates the morning message.
+# Fields:
+#   name          — display name
+#   field         — for variety filtering (science, philosophy, history,
+#                   psychology, leadership, arts, math, business)
+#   one_liner     — 1 sentence on who they are (for context, not the message)
+#   core_idea     — the thing the bot frames the morning around
+#   quote         — short, real, attributable; bot may use or paraphrase
+#   takeaway_seed — direction for the "carry it into today" line
+#                   (the bot rewrites this each morning, doesn't recite)
+#
+# Goal: someone whose history, ideas, or way of thinking teaches something
+# durable. Not motivational-poster quotes. Not tech bros (a few exceptions
+# where the *thinking model* matters more than the company).
+
+# ─────────────────────────────────────────────────────────────────────────
+# SCIENCE
+# ─────────────────────────────────────────────────────────────────────────
+
+- name: Richard Feynman
+  field: science
+  one_liner: Nobel-winning physicist, helped crack quantum electrodynamics, famous for explaining hard ideas in plain language.
+  core_idea: You don't understand something until you can explain it to a curious 12-year-old. Naming a thing is not knowing it.
+  quote: I learned very early the difference between knowing the name of something and knowing something.
+  takeaway_seed: Test your own understanding today by trying to explain one concept in plain words.
+
+- name: Marie Curie
+  field: science
+  one_liner: First person to win Nobel Prizes in two different sciences; isolated radium by hand in a leaking shed.
+  core_idea: Curiosity persists in conditions designed to make you quit. The work itself, done daily, is the reward.
+  quote: Nothing in life is to be feared, it is only to be understood.
+  takeaway_seed: When something looks intimidating today, treat it as something to understand, not avoid.
+
+- name: Charles Darwin
+  field: science
+  one_liner: Naturalist who reframed all of biology around descent with modification, after sitting on the idea for 20 years.
+  core_idea: Sit with an observation long enough and it tells you what it means. He kept a "book of arguments against my theory" — engineered honest doubt.
+  quote: It is not the strongest of the species that survives, but the most adaptable.
+  takeaway_seed: Notice when you're avoiding the strongest counter-argument to something you believe.
+
+- name: Barbara McClintock
+  field: science
+  one_liner: Geneticist who discovered "jumping genes" decades before the field believed her; won the Nobel alone, 30 years later.
+  core_idea: Sometimes the data is right and the consensus is wrong. Patience plus rigor outlasts dismissal.
+  quote: If you know you are on the right track, if you have this inner knowledge, then nobody can turn you off.
+  takeaway_seed: When something you've checked carefully gets dismissed, the answer is more rigor, not retreat.
+
+- name: Alan Turing
+  field: science
+  one_liner: Mathematician who formalized computation itself, then helped break Enigma and shortened WWII.
+  core_idea: Reduce a vague question to a precise one and you can attack it. "Can machines think?" → "Can a machine pass an imitation test?"
+  quote: We can only see a short distance ahead, but we can see plenty there that needs to be done.
+  takeaway_seed: Convert a vague worry on your list today into one concrete, attackable question.
+
+- name: Carl Sagan
+  field: science
+  one_liner: Astronomer who made the cosmos legible to ordinary people without dumbing it down.
+  core_idea: Wonder and rigor aren't opposites. The universe is more interesting once you understand it, not less.
+  quote: Somewhere, something incredible is waiting to be known.
+  takeaway_seed: Pick one thing you're working on and remember why it was interesting before it was urgent.
+
+- name: Srinivasa Ramanujan
+  field: math
+  one_liner: Self-taught Indian mathematician who derived theorems no one else could see, often without formal proof.
+  core_idea: Intuition deeply trained on raw material can leap past procedure. But it has to be checked — Hardy's role was the proof.
+  quote: An equation for me has no meaning unless it expresses a thought of God.
+  takeaway_seed: Trust pattern recognition you've earned through reps — but always verify it.
+
+- name: John von Neumann
+  field: math
+  one_liner: Mathematician who reshaped computing, game theory, economics, and quantum mechanics — often at the same time.
+  core_idea: Generalist depth beats narrow expertise on novel problems, because most real problems sit between fields.
+  quote: In mathematics you don't understand things. You just get used to them.
+  takeaway_seed: When a concept feels alien, give it more reps before deciding you don't get it.
+
+# ─────────────────────────────────────────────────────────────────────────
+# PHILOSOPHY
+# ─────────────────────────────────────────────────────────────────────────
+
+- name: Marcus Aurelius
+  field: philosophy
+  one_liner: Roman emperor who governed an empire while writing private notes to himself on how to stay decent under pressure.
+  core_idea: You control your response, not the event. Most distress is the second arrow — the story you add to what happened.
+  quote: You have power over your mind — not outside events. Realize this, and you will find strength.
+  takeaway_seed: When something irritates you today, separate the event from your reaction to it.
+
+- name: Seneca
+  field: philosophy
+  one_liner: Stoic philosopher and advisor to Nero who wrote sharply about how people waste their time without noticing.
+  core_idea: Time, not money, is the resource we mismanage most. We protect property and squander hours.
+  quote: It is not that we have a short time to live, but that we waste a lot of it.
+  takeaway_seed: Audit one block of today the way you'd audit a cost on a budget.
+
+- name: Confucius
+  field: philosophy
+  one_liner: Chinese teacher whose ideas on character, learning, and right conduct shaped East Asian civilization for 2,500 years.
+  core_idea: Mastery is not bursts of brilliance but small daily corrections. Character is built in private, on ordinary days.
+  quote: It does not matter how slowly you go as long as you do not stop.
+  takeaway_seed: Choose one tiny correction today — not a transformation, a correction.
+
+- name: Hannah Arendt
+  field: philosophy
+  one_liner: Political theorist who fled Nazi Germany and spent her life studying how ordinary people enable terrible things.
+  core_idea: The "banality of evil" — most harm comes not from monsters but from people who stop thinking and just comply.
+  quote: The sad truth is that most evil is done by people who never make up their minds to be good or evil.
+  takeaway_seed: Notice one place today you're operating on autopilot and ask whether you actually agree with it.
+
+- name: Søren Kierkegaard
+  field: philosophy
+  one_liner: Danish philosopher who insisted that life is lived forward but only understood backward.
+  core_idea: Anxiety isn't a malfunction — it's the dizziness of freedom. The cure isn't certainty, it's commitment.
+  quote: Life can only be understood backwards; but it must be lived forwards.
+  takeaway_seed: Make one small commitment today without waiting for full clarity.
+
+- name: Lao Tzu
+  field: philosophy
+  one_liner: Founder (or legend) of Taoism, who argued effortless action beats forced striving.
+  core_idea: Wu wei — acting with the grain of a situation, not against it. Force often signals you're solving the wrong problem.
+  quote: When I let go of what I am, I become what I might be.
+  takeaway_seed: Where are you forcing today? Try the angle that feels less effortful — it might be the right one.
+
+- name: Ludwig Wittgenstein
+  field: philosophy
+  one_liner: Philosopher who twice rebuilt his entire worldview, then said much of philosophy is a confusion about how language works.
+  core_idea: Many "deep questions" dissolve once you look closely at the words used to ask them. Clarity is the work.
+  quote: The limits of my language mean the limits of my world.
+  takeaway_seed: When a problem feels tangled today, define the words in it before solving it.
+
+# ─────────────────────────────────────────────────────────────────────────
+# HISTORY / LEADERSHIP
+# ─────────────────────────────────────────────────────────────────────────
+
+- name: Abraham Lincoln
+  field: history
+  one_liner: U.S. president who held a fracturing country together through the bloodiest war in its history while battling depression.
+  core_idea: Held opponents close, listened first, decided slowly, acted firmly. The "team of rivals" approach to building competence.
+  quote: I don't like that man. I must get to know him better.
+  takeaway_seed: Pick someone whose view annoys you and steelman it before responding today.
+
+- name: Nelson Mandela
+  field: history
+  one_liner: Spent 27 years in prison, walked out without bitterness, and chose reconciliation over revenge as president.
+  core_idea: The hardest discipline is refusing to become what your enemies expected. Long time horizons enable this.
+  quote: Resentment is like drinking poison and then hoping it will kill your enemies.
+  takeaway_seed: Notice one resentment you're carrying. Ask what it costs you, not them.
+
+- name: Winston Churchill
+  field: history
+  one_liner: British PM who held the line in 1940 when surrender looked rational, partly through sheer command of language.
+  core_idea: Words shape morale, morale shapes action, action shapes outcomes. Communication is not decoration — it's leverage.
+  quote: "Success is not final, failure is not fatal: it is the courage to continue that counts."
+  takeaway_seed: Rewrite one thing you're saying to yourself today — the framing changes the action.
+
+- name: Genghis Khan
+  field: history
+  one_liner: Built the largest contiguous empire in history through ruthless meritocracy — promoting on competence, not birth.
+  core_idea: He destroyed the systems that picked people by tribe and class. Brutal in method, but the principle (competence over lineage) was radical.
+  quote: An action committed in anger is an action doomed to failure.
+  takeaway_seed: Audit one decision you're making — is it on competence and reality, or on inherited assumption?
+
+- name: Frederick Douglass
+  field: history
+  one_liner: Born enslaved, taught himself to read in secret, became one of the most powerful orators and writers of the 19th century.
+  core_idea: Literacy was the lever. He understood that whoever controls language and information controls the available futures.
+  quote: Once you learn to read, you will be forever free.
+  takeaway_seed: Invest 30 minutes today in something that compounds — reading, writing, building skill.
+
+- name: Eleanor Roosevelt
+  field: history
+  one_liner: Reshaped what a U.S. First Lady could do, then chaired the drafting of the Universal Declaration of Human Rights.
+  core_idea: Move toward what scares you on purpose. Confidence is the residue of doing the thing you wanted to avoid.
+  quote: Do one thing every day that scares you.
+  takeaway_seed: Pick the slightly uncomfortable version of a task on your list today.
+
+- name: Cyrus the Great
+  field: history
+  one_liner: Founder of the Persian Empire, ruled the largest realm of his era with unusually tolerant policies for the time.
+  core_idea: Power was more durable when it didn't try to erase the conquered. Lasting systems accommodate, they don't only impose.
+  quote: "You cannot be buried in obscurity: you are exposed upon a grand theatre to the view of the world."
+  takeaway_seed: When designing anything for others, ask what you're letting them keep, not just what you're imposing.
+
+- name: Harriet Tubman
+  field: history
+  one_liner: Escaped slavery, then returned south 13 times to lead about 70 others to freedom, never losing a single person.
+  core_idea: Operational excellence under existential stakes. Plans, redundancy, weather, timing — courage was necessary but planning is what worked.
+  quote: Every great dream begins with a dreamer. You have within you the strength, the patience, and the passion to reach for the stars.
+  takeaway_seed: Where you've got courage, add a checklist. Bravery without planning is wasted.
+
+- name: George Washington
+  field: history
+  one_liner: Won a war, then voluntarily gave up power twice — at the end of the war and after two terms as president.
+  core_idea: The hardest leadership move is leaving when you don't have to. Restraint by the powerful is the rarer virtue.
+  quote: It is far better to be alone than in bad company.
+  takeaway_seed: Where could restraint serve you better today than action?
+
+# ─────────────────────────────────────────────────────────────────────────
+# PSYCHOLOGY
+# ─────────────────────────────────────────────────────────────────────────
+
+- name: Daniel Kahneman
+  field: psychology
+  one_liner: Psychologist who won a Nobel in economics by showing humans don't reason the way economic models assumed.
+  core_idea: System 1 (fast, automatic) does most of your thinking. System 2 (slow, effortful) thinks it's in charge but rarely is.
+  quote: Nothing in life is as important as you think it is, while you are thinking about it.
+  takeaway_seed: When something feels urgent today, ask if System 1 is just amplifying it.
+
+- name: Viktor Frankl
+  field: psychology
+  one_liner: Holocaust survivor who built a school of psychology around the search for meaning, including in suffering.
+  core_idea: Between stimulus and response there is a space — and in that space, your freedom. Meaning is a choice, not a feeling.
+  quote: When we are no longer able to change a situation, we are challenged to change ourselves.
+  takeaway_seed: When something today is unchangeable, the only useful question is what it asks of you.
+
+- name: Carl Jung
+  field: psychology
+  one_liner: Psychiatrist who mapped the unconscious as a structured landscape — archetypes, shadows, the work of integration.
+  core_idea: What you reject in yourself doesn't disappear — it runs the show from underneath. Integration beats suppression.
+  quote: Until you make the unconscious conscious, it will direct your life and you will call it fate.
+  takeaway_seed: Notice a reaction today that felt bigger than the event deserved. Something underneath is asking to be seen.
+
+- name: William James
+  field: psychology
+  one_liner: Founder of American psychology and a serious philosopher; wrote about habit, attention, and will with rare clarity.
+  core_idea: You become what you repeatedly attend to. Attention is the most consequential thing you allocate.
+  quote: My experience is what I agree to attend to.
+  takeaway_seed: Audit your attention today the way you'd audit your spending.
+
+- name: Carol Dweck
+  field: psychology
+  one_liner: Stanford psychologist who showed that beliefs about ability ("fixed" vs. "growth") shape what people are willing to attempt.
+  core_idea: 'The phrase "I''m not good at this yet" is structurally different from "I''m not good at this." The word at the end changes behavior.'
+  quote: Becoming is better than being.
+  takeaway_seed: Add "yet" to one thing you've been telling yourself you're not good at.
+
+- name: Anders Ericsson
+  field: psychology
+  one_liner: Researcher who showed expertise comes from "deliberate practice" — focused work on weaknesses, not just hours logged.
+  core_idea: 10,000 hours is wrong. The hours have to be deliberate — at the edge of ability, with feedback. Most "experience" isn't.
+  quote: The right sort of practice carried out over a sufficient period of time leads to improvement. Nothing else.
+  takeaway_seed: Spend 30 minutes today practicing the part you avoid, not the part you enjoy.
+
+- name: B.F. Skinner
+  field: psychology
+  one_liner: Behaviorist who showed how schedules of reinforcement shape behavior — for good and for slot-machine-style harm.
+  core_idea: Your environment is not a backdrop, it's the input. Change the environment before relying on willpower.
+  quote: A failure is not always a mistake, it may simply be the best one can do under the circumstances.
+  takeaway_seed: Move one friction point in your environment today — toward what you want, away from what you don't.
+
+# ─────────────────────────────────────────────────────────────────────────
+# BUSINESS / BUILDERS (rare — only when the thinking model is the lesson)
+# ─────────────────────────────────────────────────────────────────────────
+
+- name: Warren Buffett
+  field: business
+  one_liner: Investor who outperformed for 60 years not through information edge but through temperament — patience and inversion.
+  core_idea: "Most of edge is sitting on your hands and saying no. Charlie Munger: 'It's the strong urge to do something we have to fight.'"
+  quote: The stock market is a device for transferring money from the impatient to the patient.
+  takeaway_seed: Where could "no" or "wait" today produce more value than action?
+
+- name: Charlie Munger
+  field: business
+  one_liner: Buffett's partner; built a mental-models toolkit drawn from psychology, math, biology, and history.
+  core_idea: Invert. To solve a problem, ask how to fail at it, then avoid those things. Most disasters are foreseeable in reverse.
+  quote: Tell me where I'm going to die, so I'll never go there.
+  takeaway_seed: Take one goal on your list and ask how you'd guarantee failure. Then don't do those things.
+
+- name: Jeff Bezos
+  field: business
+  one_liner: Built Amazon by relentlessly optimizing for long time horizons — a thinking style worth borrowing from the company.
+  core_idea: One-way doors (irreversible) deserve slow analysis. Two-way doors (reversible) deserve fast action. Most people get this backwards.
+  quote: If you double the number of experiments per year you're going to double your inventiveness.
+  takeaway_seed: "Sort one decision today: is this a one-way door or a two-way door? Match speed to type."
+
+- name: Sam Walton
+  field: business
+  one_liner: Built Walmart from one rural store to the largest retailer on earth by obsessively learning from competitors.
+  core_idea: He visited every competing store he could and copied what worked. Pride about "originality" was a tax he refused to pay.
+  quote: I have always been driven to buck the system, to innovate, to take things beyond where they've been.
+  takeaway_seed: Find someone who's already solved your problem and copy 80% before innovating on the rest.
+
+# ─────────────────────────────────────────────────────────────────────────
+# ARTS / CRAFT
+# ─────────────────────────────────────────────────────────────────────────
+
+- name: Leonardo da Vinci
+  field: arts
+  one_liner: Painter, anatomist, engineer, and obsessive notebook-keeper — across 7,000 surviving pages of close observation.
+  core_idea: Real expertise is notebook work. Slow, daily, unflashy looking-and-recording. The notebook is the engine, not the output.
+  quote: Learning never exhausts the mind.
+  takeaway_seed: Capture one observation today — written, not just thought. The act of writing it changes what you see.
+
+- name: Vincent van Gogh
+  field: arts
+  one_liner: Painted for 10 years, sold one painting in his life, made about 2,100 works that defined post-impressionism.
+  core_idea: Output didn't need market validation to be real. He kept producing because the work itself was the point.
+  quote: I would rather die of passion than of boredom.
+  takeaway_seed: What are you making for its own sake, regardless of who notices?
+
+- name: Maya Angelou
+  field: arts
+  one_liner: Poet, memoirist, and civil rights worker whose precision about feeling came from decades of disciplined writing.
+  core_idea: Voice is built, not found. Years of bad pages stand between you and the sentences that sound effortless.
+  quote: There is no greater agony than bearing an untold story inside you.
+  takeaway_seed: Write one paragraph today on something that's been sitting in your head untold.
+
+- name: Akira Kurosawa
+  field: arts
+  one_liner: Japanese film director whose obsessive process — storyboards, painting, writing — shaped a generation of global cinema.
+  core_idea: Mastery is layers of separately-mastered crafts, each fed back into one. He painted every frame because the painting taught him the shot.
+  quote: To be an artist means never to avert one's eyes.
+  takeaway_seed: What are you avoiding looking at directly? Look longer.
+
+- name: Beethoven
+  field: arts
+  one_liner: Composer who lost his hearing, kept composing, and produced his most radical work after he could no longer hear it.
+  core_idea: Constraints often produce breakthrough. The thing you think disqualifies you may be the lever.
+  quote: To play a wrong note is insignificant; to play without passion is inexcusable.
+  takeaway_seed: Treat a current limitation as a constraint to design around, not a reason to stop.
+
+- name: Toni Morrison
+  field: arts
+  one_liner: Nobel laureate novelist who wrote her first book at 39, edited at Random House by day, wrote at 4 AM.
+  core_idea: Stop waiting for ideal conditions. The work happens in the cracks of an actual life or it doesn't happen.
+  quote: If there's a book that you want to read, but it hasn't been written yet, then you must write it.
+  takeaway_seed: What are you waiting for "real time" to start? Start in the cracks of today instead.
+
+# ─────────────────────────────────────────────────────────────────────────
+# THINKERS / WRITERS
+# ─────────────────────────────────────────────────────────────────────────
+
+- name: Mark Twain
+  field: arts
+  one_liner: American writer whose humor sat on top of unusually clear-eyed observation about people and power.
+  core_idea: Plain language is harder than fancy language. Anyone can be obscure; clarity is a craft.
+  quote: I didn't have time to write a short letter, so I wrote a long one instead.
+  takeaway_seed: Cut one piece of writing or speaking today by half. The cut version is usually the better one.
+
+- name: George Orwell
+  field: arts
+  one_liner: Novelist and essayist who treated bad prose as a political problem — vague language enables vague thinking.
+  core_idea: Imprecise words let you avoid precise thoughts. Cleaning your writing cleans what you actually believe.
+  quote: If thought corrupts language, language can also corrupt thought.
+  takeaway_seed: Find one fuzzy phrase you used recently and force it into a precise one.
+
+- name: James Baldwin
+  field: arts
+  one_liner: Novelist and essayist who wrote unsparingly about race, identity, and self-deception in mid-century America.
+  core_idea: You cannot fix what you refuse to look at. Honesty about yourself is the precondition for honesty about anything.
+  quote: Not everything that is faced can be changed, but nothing can be changed until it is faced.
+  takeaway_seed: What's the small thing you're not facing? Start there.
+
+- name: Joan Didion
+  field: arts
+  one_liner: Essayist and novelist whose precision about her own confusion taught a generation what real observation looks like.
+  core_idea: Writing is how she figured out what she thought. The page is the instrument, not the report.
+  quote: I write entirely to find out what I'm thinking.
+  takeaway_seed: Write down what you think about something unresolved today. The act of writing will move it.
+
+- name: Christopher Hitchens
+  field: arts
+  one_liner: Essayist and debater who held positions strongly but was unusually willing to update them publicly.
+  core_idea: Strong opinions, lightly held — combined with the willingness to say "I changed my mind." Most people manage one half.
+  quote: The essence of the independent mind lies not in what it thinks, but in how it thinks.
+  takeaway_seed: When was the last time you publicly changed your mind on something? Aim to do it once a quarter.
+
+# ─────────────────────────────────────────────────────────────────────────
+# SCIENCE / EXPLORATION
+# ─────────────────────────────────────────────────────────────────────────
+
+- name: Ernest Shackleton
+  field: history
+  one_liner: Antarctic explorer whose 1914 expedition went catastrophically wrong; kept all 27 men alive for two years on the ice.
+  core_idea: When the original mission dies, the new mission is keeping the team alive and morale up. Leadership is situation-dependent.
+  quote: Optimism is true moral courage.
+  takeaway_seed: When a plan breaks today, switch to the new objective fast — don't grieve the old one.
+
+- name: Florence Nightingale
+  field: history
+  one_liner: Nurse who used statistics — including the polar-area chart she invented — to prove sanitation killed more soldiers than combat.
+  core_idea: Data well-visualized is political. She moved Parliament with charts; numbers in a table would have been ignored.
+  quote: I attribute my success to this — I never gave or took any excuse.
+  takeaway_seed: When you need to convince someone today, show them the picture, not the spreadsheet.
+
+- name: Rosalind Franklin
+  field: science
+  one_liner: Crystallographer whose X-ray images of DNA were essential to Watson and Crick's structure — work she never got to defend.
+  core_idea: Rigor without recognition still moves the field. The work is real even when the credit is delayed or stolen.
+  quote: Science and everyday life cannot and should not be separated.
+  takeaway_seed: Do one piece of work today purely for the work — independent of who'll see it.
+
+- name: Norman Borlaug
+  field: science
+  one_liner: Agronomist whose wheat varieties prevented famines that would have killed an estimated billion people — and almost no one knows his name.
+  core_idea: The most important work is often invisible. Impact and visibility are uncorrelated.
+  quote: You can't build a peaceful world on empty stomachs and human misery.
+  takeaway_seed: Recognize one piece of unglamorous work that compounds — yours or someone else's.

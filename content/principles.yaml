@@ -1,0 +1,523 @@
+# principles.yaml — morning brief "principle of the day" library
+#
+# A principle is a thinking tool — a lens you carry through the day.
+# Different from people.yaml: people are stories, principles are tools.
+#
+# Cycle target: every ~30 days (more frequent than people on purpose —
+# repetition is how a tool gets internalized).
+#
+# Fields:
+#   name              — short label (1-3 words)
+#   source            — author/school for attribution
+#   tradition         — for variety filtering (taleb, munger, stoic,
+#                       decision, systems, craft, cognitive)
+#   core              — 1 paragraph explanation, no prior knowledge assumed
+#   contrast          — what people confuse it with — this is what makes it land
+#   everyday_examples — 2-3 concrete situations where it applies
+#   application_seed  — direction for the "for today" line
+#                       (the bot rewrites this fresh each morning)
+
+# ─────────────────────────────────────────────────────────────────────────
+# TALEB — uncertainty, fragility, optionality
+# ─────────────────────────────────────────────────────────────────────────
+
+- name: Antifragility
+  source: Nassim Taleb, Antifragile
+  tradition: taleb
+  core: Things sit on a spectrum. Fragile breaks under stress. Robust survives stress unchanged. Antifragile gets stronger from stress. A wine glass is fragile, a rock is robust, your muscles are antifragile. Most people aim for robust — protect themselves from shocks. The antifragile move is to design your life so small shocks make you better, not just unbroken.
+  contrast: Robust ≠ antifragile. Surviving a hard week is robust; using it to actually level up is antifragile.
+  everyday_examples:
+    - Strength training breaks down muscle fiber so it grows back stronger.
+    - A startup pivoting after a failed launch becomes more resilient than one that succeeded the first time.
+    - Reading criticism of your work and using it makes the next piece better.
+  application_seed: 'When something difficult happens today, ask "what does this teach me that I couldn''t have learned without it?"'
+
+- name: Via negativa
+  source: Nassim Taleb
+  tradition: taleb
+  core: Improvement often comes from removing things, not adding them. We default to addition — buy a tool, learn a method, take a supplement — when the higher-leverage move is subtraction. Removing junk food beats adding vitamins. Removing one toxic relationship beats adding three good ones. Removing a meeting beats optimizing it.
+  contrast: Optimization ≠ subtraction. You can endlessly tune a process that shouldn't exist.
+  everyday_examples:
+    - Health gains from cutting sugar usually beat gains from adding new supplements.
+    - Codebases improve more from deleting dead code than from refactoring it.
+    - Schedules get better from removing commitments before adding new ones.
+  application_seed: Today, look for one thing to remove from your work, calendar, or environment — not one to add.
+
+- name: Optionality
+  source: Nassim Taleb
+  tradition: taleb
+  core: An option is the right but not the obligation to do something. Optionality is wealth — having choices you don't have to take. Working a stable job while building a side project gives you optionality. Locking yourself into one path destroys it. Asymmetric bets — small downside, large upside — are pure optionality.
+  contrast: Optionality ≠ indecision. Optionality means staying open while still acting; indecision is acting on nothing.
+  everyday_examples:
+    - Saving money gives you the option to quit, not the obligation.
+    - Learning a second skill gives you the option to switch.
+    - Many small experiments beat one big bet because they preserve future choices.
+  application_seed: Identify one move today that buys you future optionality without locking you in.
+
+- name: Skin in the game
+  source: Nassim Taleb, Skin in the Game
+  tradition: taleb
+  core: Whoever takes the upside should also bear the downside. Without that, advice is cheap and decisions get reckless. A surgeon who operates on themselves thinks differently than one who doesn't. People who recommend things they wouldn't do themselves should be heavily discounted.
+  contrast: Credentials ≠ skin in the game. A degree means someone studied; skin in the game means they pay if they're wrong.
+  everyday_examples:
+    - Advice from someone who's actually shipped the thing > advice from someone who studied it.
+    - '"What would you do?" beats "What should I do?" — forces them into the decision with you.'
+    - Founders who invest their own money decide differently than ones who don't.
+  application_seed: When taking advice today, ask whether the advisor has skin in the game — and weight accordingly.
+
+- name: Lindy effect
+  source: Nassim Taleb (formalized), via Albert Goldman
+  tradition: taleb
+  core: For non-perishable things — books, ideas, technologies — the longer they've already lasted, the longer they're likely to last. A book that's been read for 2,000 years will probably be read for another 2,000. A book that came out last year probably won't. Time is a filter; whatever survives it has been validated against everything that didn't.
+  contrast: New ≠ better. Recency bias makes recent things feel more important than they are.
+  everyday_examples:
+    - Reading the Stoics beats reading most modern self-help — the ideas have already survived 2,000 years of editing.
+    - Choosing tools that have been around for decades (Linux, SQL, vim) over the framework of the month.
+    - Recipes from grandmothers tend to outperform recipes from Instagram.
+  application_seed: Pick one old thing to learn from today instead of one new thing — book, tool, or method.
+
+- name: Narrative fallacy
+  source: Nassim Taleb, The Black Swan
+  tradition: taleb
+  core: 'We fit stories to outcomes after the fact, then mistake the story for an explanation. Why did the company succeed? "Founder vision." Why did it fail? "Founder hubris." Same trait, different outcome, story chosen to match. Real causes are usually messy combinations of luck, timing, and a hundred small things.'
+  contrast: A coherent story ≠ a true explanation. The cleaner the narrative, the more skeptical you should be.
+  everyday_examples:
+    - '"I succeeded because of X" is usually 30% X and 70% things you can''t see.'
+    - News articles that explain today's market move with one cause are almost always wrong.
+    - Biographies make people's lives sound more deliberate than they were.
+  application_seed: Notice a clean story you're telling yourself today and ask what messy causes you're leaving out.
+
+# ─────────────────────────────────────────────────────────────────────────
+# MUNGER / MENTAL MODELS — clear thinking
+# ─────────────────────────────────────────────────────────────────────────
+
+- name: Inversion
+  source: Charlie Munger, via Carl Jacobi
+  tradition: munger
+  core: 'To solve a problem, ask how to fail at it — then avoid those things. "How do I have a great career?" is hard. "How do I guarantee a terrible career?" is easy: pick fights with everyone, never finish what you start, lie to yourself about your weaknesses. Now don''t do those. Inversion makes invisible mistakes visible.'
+  contrast: Inversion ≠ pessimism. It's not about expecting the worst — it's about engineering against it.
+  everyday_examples:
+    - Before a big project, list every way it could fail. Then design against each.
+    - Before a hard conversation, list how it could go wrong. Then plan around those.
+    - Before a decision, ask what the regret would look like if you got it wrong.
+  application_seed: Take one goal on your list today and ask how you'd guarantee failing at it. Then don't do those things.
+
+- name: Circle of competence
+  source: Warren Buffett & Charlie Munger
+  tradition: munger
+  core: You have a small set of things you actually understand and a much larger set you only think you understand. Edge comes from staying inside the small circle and being honest about its border. The size of the circle matters less than knowing where the line is.
+  contrast: Confidence ≠ competence. Feeling sure has almost no correlation with being right outside your circle.
+  everyday_examples:
+    - Investing only in industries you actually understand outperforms diversifying into things you don't.
+    - 'Saying "I don''t know" when you don''t is a competitive advantage in most rooms.'
+    - Specializing deeply beats spreading shallowly when stakes are real.
+  application_seed: Notice one thing today where you're operating outside your circle of competence — and either go learn or defer.
+
+- name: Second-order thinking
+  source: Charlie Munger, Howard Marks
+  tradition: munger
+  core: 'First-order thinking asks "what happens?" Second-order asks "and then what?" Most people stop at first-order. The decision that looks obvious at first-order ("we should hire fast to grow") often looks bad at second-order ("which means lower bar, which means firing in 6 months, which means worse culture").'
+  contrast: Smart-sounding ≠ second-order. First-order conclusions can be articulated confidently and still be wrong.
+  everyday_examples:
+    - Adding a feature feels like a win until you see the maintenance cost compounding.
+    - Saying yes to a meeting feels nice until you see the week it ruined.
+    - A short-term comfort food choice tastes good now and feels bad in two hours.
+  application_seed: For one decision today, force yourself to write down the second-order consequences before committing.
+
+- name: Opportunity cost
+  source: Economics, popularized by Munger
+  tradition: munger
+  core: The real cost of a choice is what you gave up by making it. The cost of saying yes to a project is every other project you can't do this month. The cost of buying something is what else that money could have bought. Most people see the price tag; few see the opportunity cost.
+  contrast: Cash cost ≠ opportunity cost. Time and attention have opportunity costs too — usually higher than money.
+  everyday_examples:
+    - The real cost of a low-paying job is the high-paying one you couldn't take.
+    - The real cost of one busy week is the deep work you didn't do.
+    - The real cost of a bad relationship is the better ones you crowded out.
+  application_seed: 'For one decision today, ask explicitly "what am I giving up by saying yes to this?"'
+
+- name: Incentive bias
+  source: Charlie Munger
+  tradition: munger
+  core: "Munger's rule: never ask the barber if you need a haircut. People don't lie deliberately — they convince themselves of whatever conclusion serves their interests. A doctor paid per surgery genuinely believes more patients need surgery. The bias works on you too. Always check who benefits from a conclusion before trusting it."
+  contrast: Honesty ≠ accuracy. Honest people unconsciously reach conclusions that benefit them.
+  everyday_examples:
+    - Career advice from someone who hires that role is biased — even when well-intentioned.
+    - A consultant's diagnosis tends to point toward services they sell.
+    - 'Your own reasoning about what you "should" do is biased toward what you want to do.'
+  application_seed: 'Notice an opinion you hold today and ask "what would I conclude if I had no stake in this?"'
+
+- name: Chesterton's fence
+  source: G.K. Chesterton
+  tradition: munger
+  core: When you find a fence in the middle of a field with no obvious purpose, don't tear it down until you understand why someone built it. Most rules, processes, and constraints exist for reasons that aren't visible from the outside. New people in a system constantly want to remove things; experienced people want to know why they're there first.
+  contrast: Visible reason ≠ no reason. Just because you can't see why a process exists doesn't mean it's pointless.
+  everyday_examples:
+    - That weird code in a legacy system is often handling an edge case you haven't hit yet.
+    - A rule that seems pointless usually came from a specific incident no one remembers.
+    - 'A founder who removes a "stupid" policy in week one often re-creates it in month three.'
+  application_seed: When tempted to remove or override something today, first find out why it exists.
+
+# ─────────────────────────────────────────────────────────────────────────
+# STOICISM — applied philosophy
+# ─────────────────────────────────────────────────────────────────────────
+
+- name: Dichotomy of control
+  source: Epictetus
+  tradition: stoic
+  core: "Some things are in your control — your effort, your attention, your response. Most things are not — outcomes, other people's reactions, the weather, the market. Suffering comes from confusing the two: trying to control what you can't, or surrendering what you can. Sort every situation into the two buckets and act only on the first."
+  contrast: Acceptance ≠ passivity. Accepting what you can't control frees you to work harder on what you can.
+  everyday_examples:
+    - You can't control whether a job offer comes; you can control how prepared you are when it does.
+    - You can't control how someone reacts to your honesty; you can control whether you were honest.
+    - You can't control whether a project succeeds; you can control whether the work is good.
+  application_seed: 'Sort one current worry into "in my control" and "not." Drop the second half.'
+
+- name: Premeditatio malorum
+  source: Seneca
+  tradition: stoic
+  core: Pre-meditate on what could go wrong, on purpose. Not as anxiety, as preparation. Athletes do it before games. Pilots do it before flights. The Stoics did it before ordinary days — what could go badly, how would I respond, can I make peace with it now? It removes the surprise that turns a setback into a crisis.
+  contrast: Premeditation ≠ catastrophizing. Catastrophizing is fear without a plan; premeditation is fear with one.
+  everyday_examples:
+    - Before a presentation, picture the hard questions and rehearse the answers.
+    - Before a launch, list every plausible failure mode and prepare for each.
+    - Before a hard conversation, imagine the worst response — then decide if you'd still go through with it.
+  application_seed: 'Take one thing on your plate today and run through "what could go wrong and how would I respond?"'
+
+- name: View from above
+  source: Marcus Aurelius
+  tradition: stoic
+  core: 'Zoom out. Imagine looking at your situation from far above — from another country, another century, another planet. Most things that feel urgent shrink dramatically when you change altitude. Marcus did this in his journal: an emperor reminding himself that empires fall and ants live their lives anyway.'
+  contrast: Zooming out ≠ minimizing. Some things are genuinely important; the view from above helps you see which ones.
+  everyday_examples:
+    - The fight you're having will likely be forgotten in a month. Act accordingly.
+    - The deadline that feels life-or-death today won't be on next year's resume.
+    - The criticism that stung will look smaller in a week. Save your reaction for then.
+  application_seed: 'Take one thing stressing you today and ask: will this matter in a year? Five? Calibrate now.'
+
+- name: Memento mori
+  source: Stoicism, classical
+  tradition: stoic
+  core: 'Remember that you''ll die. The Stoics weren''t being morbid — they were being practical. Awareness of finitude clarifies priorities better than any productivity system. The decision that''s hard right now becomes obvious when you imagine yourself at 80 looking back. Not "what would I regret?" but "what would I find ridiculous that I worried about?"'
+  contrast: Memento mori ≠ nihilism. The point isn't that nothing matters — it's that the trivial things stop hiding the real ones.
+  everyday_examples:
+    - At 80, the hours you spent on social media will not be the ones you remember.
+    - At 80, you'll wish you'd called more, said more, built more.
+    - At 80, you won't remember the awkward moment you're still cringing about.
+  application_seed: 'Pick one thing today and ask "would 80-year-old me think this mattered?" Adjust accordingly.'
+
+- name: Amor fati
+  source: Stoicism / Nietzsche
+  tradition: stoic
+  core: 'Love your fate. Not "tolerate" your circumstances — actively love them, including the parts you didn''t choose. The shift from resentment to acceptance to embrace changes the energy you bring to a situation. The constraint becomes the thing that makes the work interesting.'
+  contrast: 'Amor fati ≠ resignation. It''s not "this is fine"; it''s "this is mine, and I''ll work with it."'
+  everyday_examples:
+    - The constraint you resent often turns out to be what makes the project interesting.
+    - The rejection that hurt becomes the reason you went a better direction.
+    - The hard year shaped you in ways an easy one couldn't have.
+  application_seed: Pick one thing about your current situation you've been resenting and try, just for today, to love it.
+
+# ─────────────────────────────────────────────────────────────────────────
+# DECISION SCIENCE
+# ─────────────────────────────────────────────────────────────────────────
+
+- name: One-way vs. two-way doors
+  source: Jeff Bezos
+  tradition: decision
+  core: Some decisions are one-way doors — once you walk through, you can't go back. Quitting a job, publishing something, having a child. Others are two-way doors — easy to reverse if you don't like it. Trying a tool, sending a draft for feedback, taking a meeting. Most people analyze both like one-way doors. The right move is to decide fast on two-way doors and slow on one-way ones.
+  contrast: Important ≠ irreversible. Many important decisions are reversible; many trivial ones are not.
+  everyday_examples:
+    - Trying a new framework on a side project is a two-way door — just try it.
+    - Telling a teammate they're underperforming is closer to one-way — think hard first.
+    - Committing publicly to something is more one-way than people realize.
+  application_seed: 'Sort one current decision: is this a one-way door or a two-way? Match speed to type.'
+
+- name: Expected value
+  source: Decision theory
+  tradition: decision
+  core: Multiply the probability of an outcome by its size, sum across outcomes — that's the expected value. A 10% chance of $1000 has the same expected value as a 50% chance of $200. Most people optimize for likelihood (avoid the 10%) when they should optimize for expected value (take the 10% — the math is the same and the upside is bigger).
+  contrast: Probable ≠ valuable. Low-probability, high-payoff bets often have the highest expected value.
+  everyday_examples:
+    - Cold outreach has a low hit rate but high payoff per hit. The math usually works.
+    - Side projects have a low success rate, but the expected value of one hitting is enormous.
+    - Conferences have low conversion, but one good connection compounds for years.
+  application_seed: 'Reframe one decision today as expected value. The "low probability" thing might be worth doing anyway.'
+
+- name: Regret minimization
+  source: Jeff Bezos
+  tradition: decision
+  core: For a hard decision, project yourself to age 80 and ask which choice you'd regret. Bezos used this to leave a finance job for Amazon — he could imagine regretting not trying, but couldn't imagine regretting trying and failing. Regret about action fades. Regret about inaction compounds.
+  contrast: Risk aversion ≠ regret minimization. Avoiding risk often produces the regret you should be avoiding.
+  everyday_examples:
+    - At 80, you'll regret the conversation you didn't have more than the one you did.
+    - At 80, you'll regret the bet you didn't place more than the one that lost.
+    - At 80, the safe path that bored you will look worse than the risky one that taught you.
+  application_seed: 'For one hesitation today, ask "which version of this would 80-year-old me regret more?"'
+
+- name: Asymmetric bets
+  source: Investing / decision-making, popularized by Taleb
+  tradition: decision
+  core: A bet where the upside is much larger than the downside. Cold email, side project, asking for the raise, sending the pitch — small downside (rejection, time), large upside (career-defining outcome). Most asymmetric bets feel scary because the downside is emotional, not actual. The math is almost always in your favor.
+  contrast: Comfortable ≠ correct. Most asymmetric bets feel uncomfortable; that's part of why they're undervalued.
+  everyday_examples:
+    - 'Sending a cold email costs you nothing. Worst case: silence. Best case: changes your career.'
+    - 'Asking for what you want costs nothing. Worst case: no. Best case: yes.'
+    - 'Putting work in public costs ego. Worst case: ignored. Best case: opportunity finds you.'
+  application_seed: Place one asymmetric bet today — small downside, large upside, mostly scary because of ego.
+
+- name: Sunk cost fallacy
+  source: Behavioral economics
+  tradition: decision
+  core: 'Time, money, or effort already spent is gone — it shouldn''t influence future decisions. But it does. We finish bad books because we''re halfway through. We stay in dying projects because we put years in. The right question is never "how much have I invested?" — it''s "given where I am now, what''s the best move?"'
+  contrast: Persistence ≠ sunk cost. Persistence pursues a worthwhile goal harder; sunk cost continues a bad one because you already started.
+  everyday_examples:
+    - 'Finishing a bad book to "not waste the time already spent" wastes more time.'
+    - Staying in a wrong career because of years invested is paying twice.
+    - Continuing a project past its usefulness because of the work already done.
+  application_seed: Identify one thing you're continuing only because you started. Decide it fresh today.
+
+# ─────────────────────────────────────────────────────────────────────────
+# SYSTEMS THINKING / ENGINEERING
+# ─────────────────────────────────────────────────────────────────────────
+
+- name: Gall's law
+  source: John Gall, Systemantics
+  tradition: systems
+  core: 'A complex system that works always evolved from a simple system that worked. A complex system designed from scratch never works and can''t be patched into working — you have to start over with a simple system. Twitter, Amazon, Linux all started small and grew. Every "we''ll build the whole thing properly first" project dies.'
+  contrast: Designed ≠ built. The architecture diagram isn't the system; the system is what runs.
+  everyday_examples:
+    - Ship the ugly working v0.1, not the beautiful broken v2.0.
+    - Big-bang rewrites of systems usually fail; gradual migration usually works.
+    - Personal habits that stick start small and grow — never the reverse.
+  application_seed: For one project today, find the smallest version that could actually work, and start there.
+
+- name: Conway's law
+  source: Melvin Conway
+  tradition: systems
+  core: Organizations design systems that mirror their communication structure. A company with three teams will produce a three-component product, whether or not the architecture should be that way. If the team is split badly, the system will be split badly. Restructure the org to restructure the code; restructuring just the code is paint over rust.
+  contrast: Architecture ≠ code structure. The org chart is the architecture; the code is its shadow.
+  everyday_examples:
+    - Microservices split along team lines often don't match what the system actually needs.
+    - Two teams that can't talk produce two systems that can't talk.
+    - Solo projects often have cleaner architecture than team projects of the same complexity.
+  application_seed: When something feels structurally wrong today, look at the human structure behind it.
+
+- name: 80/20 (Pareto)
+  source: Vilfredo Pareto
+  tradition: systems
+  core: "80% of effects come from 20% of causes. 80% of revenue from 20% of customers. 80% of bugs from 20% of code. 80% of value from 20% of effort. The actionable form: identify the 20% that matters, kill or ignore the 80% that doesn't. Most people spread effort evenly because it feels fair. Output is never evenly distributed."
+  contrast: Fair effort ≠ effective effort. Spreading work evenly across tasks ignores that some tasks matter 100x more than others.
+  everyday_examples:
+    - The 20% of customers who pay most are worth 10x the time of the rest.
+    - The 20% of code that handles core flows deserves 80% of the testing.
+    - The 20% of habits that compound matter more than the other 80% combined.
+  application_seed: Identify the 20% of today's tasks that produce 80% of the value. Do those first.
+
+- name: Slack vs. utilization
+  source: Tom DeMarco, Slack
+  tradition: systems
+  core: Systems run at 100% utilization can't absorb anything. A highway at 100% capacity has standstill traffic; at 70% it flows. A team booked 100% of the time can't handle the unexpected, can't improve, can't think. Slack — deliberate empty space — is what separates resilient systems from brittle ones.
+  contrast: Busy ≠ productive. Maximum utilization is the enemy of throughput once any disruption hits.
+  everyday_examples:
+    - A calendar with 30% empty space gets more done than one packed solid.
+    - An engineer with no slack can't fix the bugs they keep finding.
+    - A team always running at 100% can never improve the system they run on.
+  application_seed: Add one block of deliberate slack to your day today. Don't fill it.
+
+- name: Goodhart's law
+  source: Charles Goodhart
+  tradition: systems
+  core: When a measure becomes a target, it stops being a good measure. Track LOC and people write more code, not better. Track call duration and support reps rush you off the phone. The metric was a proxy for the thing you cared about; the moment you optimize the proxy, the link breaks. Goodhart isn't an argument against measurement — it's a warning about what happens when you reward it.
+  contrast: Measure ≠ goal. Useful measures stop being useful the moment they're rewarded.
+  everyday_examples:
+    - 'Optimizing for "lines of code per day" produces verbose, low-quality code.'
+    - 'Optimizing for "hours worked" produces presenteeism, not output.'
+    - 'Optimizing for "books read per year" produces skimming, not learning.'
+  application_seed: Look at one metric you're tracking today. Are you still chasing the underlying goal, or just the number?
+
+# ─────────────────────────────────────────────────────────────────────────
+# CRAFT / PRACTICE
+# ─────────────────────────────────────────────────────────────────────────
+
+- name: Deliberate practice
+  source: Anders Ericsson
+  tradition: craft
+  core: '10,000 hours is wrong. The hours have to be deliberate — focused on weaknesses, at the edge of ability, with feedback that tells you what to fix. Most "experience" is just repetition of what you already do. Deliberate practice is uncomfortable on purpose; it works on the part you''re worst at, not the part you enjoy.'
+  contrast: Reps ≠ practice. Doing your job for 10 years doesn't make you 10 years better. Deliberately working on your weaknesses does.
+  everyday_examples:
+    - A pianist who plays full songs improves slowly; one who isolates difficult passages improves fast.
+    - A coder who builds the same kind of thing repeatedly plateaus; one who deliberately tackles new patterns grows.
+    - Reading a hard book carefully outperforms skimming three easy ones.
+  application_seed: Spend 30 minutes today practicing the part you avoid, not the part you enjoy.
+
+- name: Deep work
+  source: Cal Newport
+  tradition: craft
+  core: Cognitively demanding work that produces real value happens only in long, uninterrupted blocks. Shallow work — email, meetings, Slack — feels productive but is mostly maintenance. The skill of staying with something hard for hours is rare and increasingly so; it's also where almost all leverage comes from.
+  contrast: Activity ≠ progress. A day full of small tasks can produce nothing; one 3-hour block can produce a week's worth.
+  everyday_examples:
+    - The hardest problems get solved during 2-hour focused blocks, not during chats.
+    - Writing that matters happens in protected time, not in 15-minute gaps.
+    - Learning something new requires hours of contiguous attention, not minutes.
+  application_seed: Block one 90-minute deep-work session today. Phone off, single tab, hard problem.
+
+- name: Beginner's mind
+  source: Shunryu Suzuki, Zen Mind, Beginner's Mind
+  tradition: craft
+  core: 'In the beginner''s mind there are many possibilities; in the expert''s, few. Expertise is real, but it narrows what you can see. The beginner asks "stupid" questions that turn out to be the right ones. Holding beginner''s mind on purpose — deliberately questioning assumptions you stopped questioning — is how experts stay sharp.'
+  contrast: 'Expertise ≠ openness. The more you know, the more your defaults harden into "obviously."'
+  everyday_examples:
+    - The new hire sees problems veterans stopped seeing.
+    - A foreign visitor notices things about your city you stopped noticing.
+    - Re-reading a familiar book at 35 reveals things you missed at 25.
+  application_seed: Take one thing you're sure about today and try to see it as if you'd never encountered it before.
+
+- name: Kaizen
+  source: Toyota Production System
+  tradition: craft
+  core: Continuous small improvement. 1% better every day compounds to 38x in a year; 1% worse compounds to nothing. The Toyota system rejected big revolutionary changes in favor of relentless tiny ones. Most people overestimate what they can do in a week and underestimate what they can do in a year of small consistent moves.
+  contrast: Small ≠ insignificant. Small improvements compound; big changes usually don't sustain.
+  everyday_examples:
+    - 30 minutes of language study a day beats a 6-hour weekend cram.
+    - One 5-minute shipping improvement made every week reshapes a company.
+    - One paragraph written daily beats waiting for time to write a chapter.
+  application_seed: Make one small improvement today to a process you'll repeat many times.
+
+- name: Show your work
+  source: Austin Kleon
+  tradition: craft
+  core: 'Documenting and sharing the process — not just the polished result — is leverage. It builds an audience while you build the thing. It clarifies your thinking by forcing you to explain it. It compounds: each shared piece is searchable and reusable. Most people wait until something is "ready"; the people who win share early and often.'
+  contrast: Output ≠ visibility. Doing great work in private is roughly equivalent to not doing it at all.
+  everyday_examples:
+    - Writing notes as you learn produces a body of work; learning silently produces nothing transferable.
+    - Streaming the build of a side project finds collaborators that hiding it never would.
+    - Talking publicly about what you're working on creates serendipity you can't manufacture.
+  application_seed: Share one piece of work in progress today — note, sketch, or thought — instead of waiting until it's done.
+
+# ─────────────────────────────────────────────────────────────────────────
+# COGNITIVE — biases and traps
+# ─────────────────────────────────────────────────────────────────────────
+
+- name: Survivorship bias
+  source: Statistics, popularized by Abraham Wald (WWII)
+  tradition: cognitive
+  core: We study survivors and miss the dead. WWII engineers wanted to armor planes where returning bombers had bullet holes; Wald pointed out the holes were in places that didn't bring planes down — armor the parts with no holes, because the planes hit there didn't come back. Same trap when you study only successful founders, books, careers — the failures had identical traits but you can't see them.
+  contrast: Success patterns ≠ winning formula. The same patterns are usually visible in the failures, you just don't have data on those.
+  everyday_examples:
+    - '"Successful CEOs all wake up at 5 AM" — so do plenty of failed ones.'
+    - '"Dropouts who became billionaires" — the millions who didn''t are invisible.'
+    - Self-help books over-extract lessons from a tiny survivor pool.
+  application_seed: 'When taking a "lesson" from a success story today, ask whether the same trait shows up in the failures.'
+
+- name: Hindsight bias
+  source: Cognitive psychology, Kahneman
+  tradition: cognitive
+  core: 'After the fact, everything looks predictable. The crash was "obviously coming." The failed startup "obviously couldn''t work." We rewrite our memory so we always saw it. This makes us over-confident about predicting the future and under-honest about uncertainty in the past.'
+  contrast: Obvious in retrospect ≠ predictable in advance. The clarity is created by knowing the outcome, not by the situation.
+  everyday_examples:
+    - 'Every market crash was "obvious" — the day after.'
+    - 'Every failed product was "doomed from the start" — once it failed.'
+    - Your past decisions look stupider than they were because you now know how they turned out.
+  application_seed: Be charitable today to your past self — they didn't know what you know now.
+
+- name: Planning fallacy
+  source: Kahneman & Tversky
+  tradition: cognitive
+  core: 'We systematically underestimate how long things will take, even when we''ve been wrong about the same kind of task many times before. Best-case thinking dominates planning. The fix isn''t to plan harder — it''s to use the "outside view": what did similar projects actually take? Use that, not your inside-view estimate.'
+  contrast: Detailed plan ≠ accurate timeline. The more detailed your plan, the more confident — and usually still wrong — you are.
+  everyday_examples:
+    - Software projects ship at 2-3x the original estimate; this is true even for people who know about it.
+    - The week you blocked for a feature becomes a month.
+    - The one-hour task takes three.
+  application_seed: For one estimate today, multiply by 1.5x — and ask how long similar things actually took.
+
+- name: Hyperbolic discounting
+  source: Behavioral economics
+  tradition: cognitive
+  core: "We value rewards now disproportionately more than rewards later — even when later is much bigger. $100 today vs. $110 tomorrow: we take today. $100 in a year vs. $110 in a year and a day: we wait. Same gap, different choice. Almost every long-term goal failure is hyperbolic discounting: future-you would want this, present-you doesn't."
+  contrast: Rational ≠ how you actually decide. You will, over and over, choose the small now over the large later. Design around this, not against it.
+  everyday_examples:
+    - The donut now beats the better body in three months — every time, until you remove the donut.
+    - The notification now beats the deep work output in three hours.
+    - The cheap purchase now beats the savings goal in three years.
+  application_seed: 'For one decision today, ask "what would the version of me a year from now want me to do here?"'
+
+- name: Confirmation bias
+  source: Cognitive psychology
+  tradition: cognitive
+  core: 'We seek information that confirms what we already believe and ignore or dismiss information that contradicts it. We don''t do this consciously — it happens at the level of which sources we click, which arguments we remember, which counter-evidence we forget. The fix isn''t to "be more objective" (you can''t); it''s to deliberately seek out the strongest disconfirming evidence.'
+  contrast: Open-minded ≠ unbiased. Everyone is biased toward their own view; the question is whether you compensate.
+  everyday_examples:
+    - You remember the times your hunch was right and forget the times it wasn't.
+    - You read the headline that agrees with you and skip the one that doesn't.
+    - You notice your partner's flaws when angry and their virtues when calm.
+  application_seed: Pick one belief you hold strongly. Find the best argument against it before lunch.
+
+# ─────────────────────────────────────────────────────────────────────────
+# MISC — high-leverage frames
+# ─────────────────────────────────────────────────────────────────────────
+
+- name: Steelmanning
+  source: Rationalist tradition, Daniel Dennett
+  tradition: cognitive
+  core: Before arguing against a position, build the strongest possible version of it — stronger than its actual proponents typically make. Then argue against that. If you can't beat the steelman, you don't have a real disagreement; you have a misunderstanding. Steelmanning is the antidote to the strawman habit and produces honest thinking that strawmanning never can.
+  contrast: Fairness ≠ steelmanning. You can be fair to a position and still attack its weakest form. Steelmanning means actively making it stronger.
+  everyday_examples:
+    - Before disagreeing in a meeting, restate the other view better than its speaker did.
+    - Before dismissing a book's argument, build the strongest version of the case first.
+    - Before a hard conversation, write down the other person's case as if you were their lawyer.
+  application_seed: Steelman one view you disagree with today before continuing to disagree with it.
+
+- name: Hanlon's razor
+  source: Folk wisdom, attributed to Robert Hanlon
+  tradition: cognitive
+  core: Never attribute to malice that which is adequately explained by stupidity, ignorance, or carelessness. Most things that feel like personal attacks are actually someone being busy, distracted, or operating with information you don't have. The malice interpretation feels insightful; it's almost always wrong and almost always costs you.
+  contrast: Plausible explanation ≠ likeliest one. Malice is rare; oversight is everywhere.
+  everyday_examples:
+    - The unanswered email is almost never a snub; it's a full inbox.
+    - The dismissive comment is usually a bad day, not a real opinion of you.
+    - 'The "obvious" slight is usually obliviousness.'
+  application_seed: Notice one thing today that felt like malice. Try the carelessness interpretation first.
+
+- name: Reversion to the mean
+  source: Statistics, Francis Galton
+  tradition: cognitive
+  core: 'Extreme outcomes — both good and bad — tend to be followed by less extreme ones. The hot streak ends, the cold streak ends, the genius''s next book is worse, the rookie''s slump improves. We keep looking for causes ("what changed?") when the answer is usually nothing changed — the extreme was always going to revert.'
+  contrast: 'Pattern ≠ trend. Most "trends" people see in their own performance are just noise reverting to their actual baseline.'
+  everyday_examples:
+    - The amazing first week at a new job is usually followed by a normal one. Nothing's wrong.
+    - A great quarter is often followed by a normal one. Don't over-explain.
+    - A terrible day is usually followed by a normal one. Hold off the doom narrative.
+  application_seed: When something today feels much better or worse than usual, expect it to drift back. Don't over-react in either direction.
+
+- name: Mimetic desire
+  source: René Girard
+  tradition: cognitive
+  core: Most of what you want, you want because someone else wanted it first. We don't have purely original desires — we copy them from peers, mentors, and the culture around us. This is fine when the copied desires fit your actual life; it's catastrophic when they don't. Half the misery in ambitious people is chasing goals that turn out to be someone else's.
+  contrast: Yours ≠ chosen. The desire that feels deeply personal is often inherited from your reference group.
+  everyday_examples:
+    - 'The career path that "feels right" often matches whatever your friends are doing.'
+    - The lifestyle you want often matches whatever Instagram showed you.
+    - The startup you'd build often resembles the last one you read about.
+  application_seed: Pick one current goal. Trace where the desire came from. Is it actually yours?
+
+- name: Galaxy-brain check
+  source: Modern internet, no single attribution
+  tradition: cognitive
+  core: 'Sometimes a chain of reasoning leads you to a conclusion that''s confidently the opposite of common sense. "Galaxy-brain" is the warning that maybe you''ve reasoned yourself off a cliff. Smart people are especially vulnerable — they can construct convincing chains for almost anything. The check: when your conclusion would horrify a thoughtful average person, take that seriously instead of dismissing them.'
+  contrast: Smart reasoning ≠ correct conclusion. Long chains compound errors. Sometimes the simple read is right.
+  everyday_examples:
+    - '"I''ve thought about it deeply and concluded I should ghost everyone who''s annoyed me." Galaxy brain.'
+    - '"Actually, the financially optimal move is to never see my family." Galaxy brain.'
+    - '"If you really think about it, working out is a waste of time." Galaxy brain.'
+  application_seed: If one of today's plans would sound insane to a wise friend, run it past one before acting.
+
+- name: Compare to yesterday's self
+  source: Jordan Peterson, 12 Rules for Life
+  tradition: cognitive
+  core: The standard you measure yourself against shouldn't be other people — it should be who you were yesterday. Comparing horizontally — to peers, to whoever's winning on Instagram — creates infinite anxiety because there's always someone ahead. Comparing vertically — to your own past self — is bounded, fair, and actionable. The only progress that's actually yours is what you can measure against your own previous baseline.
+  contrast: Lateral comparison ≠ vertical comparison. Both feel like measurement; only one drives real improvement.
+  everyday_examples:
+    - You finished a 5K in 28 minutes. The Olympic record is irrelevant; what matters is whether last month it was 30.
+    - Your code review got dinged. The signal is whether the same review would have dinged you six months ago, not whether seniors get dinged less.
+    - Your portfolio site got 1,000 visitors. The benchmark is your site yesterday, not someone else's at 100k.
+  application_seed: For one thing you've been measuring yourself against externally today, switch the benchmark to your own past self.

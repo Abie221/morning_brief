@@ -1,0 +1,350 @@
+# curriculum.yaml — 120-day AI engineer learning path
+#
+# Designed for someone with a data engineering background (Python, SQL,
+# pipelines, GCP, dbt, Airflow already strong) targeting "AI engineer"
+# in 5–6 months.
+#
+# Cadence: 1 topic per day. Bot reads day N from state.json and serves
+# that day's section in the morning brief.
+#
+# Fields:
+#   day               — sequential 1–120
+#   month             — 1–6, for grouping/visualization
+#   pillar            — foundations, classical_ml, deep_learning,
+#                       transformers_llms, applied_llms, agents, ml_systems
+#   topic             — short label
+#   why               — 1–2 sentences, used by bot to explain why this matters
+#   resource          — specific recommendation, prefer free + < 60 min
+#   success_criterion — concrete check ("you understand this when…")
+#   status            — "full" or "stub" (stubs need detail filled in
+#                       before that day arrives — done together each session)
+#
+# Detail status:
+#   Days 1–20  (Month 1): full — these are the calibration days
+#   Days 21–120 (Months 2–6): stub — expanded session by session as we approach
+#
+# This shape is deliberate: don't commit detail to topics that need
+# user calibration; do commit detail to what's runnable right now.
+
+# ════════════════════════════════════════════════════════════════════════
+# MONTH 1 — Foundations & Classical ML (Days 1-20)
+# ════════════════════════════════════════════════════════════════════════
+# Goal: the math and ML basics you actually need. Skips python/SQL/pandas
+# (you have them). Heavy on intuition over formalism.
+
+- day: 1
+  month: 1
+  pillar: foundations
+  topic: Calibrating the path
+  why: Before drilling in, get oriented. Understand what an AI engineer actually does day-to-day, what's distinct from data engineer / ML engineer / researcher, and where your existing skills carry vs. where you need to build.
+  resource: Andrej Karpathy "Intro to Large Language Models" (1hr YouTube talk) — best one-sitting orientation that exists.
+  success_criterion: You can describe in 3 sentences what AI engineering is and name your two biggest gaps versus where you want to be.
+  status: full
+
+- day: 2
+  month: 1
+  pillar: foundations
+  topic: Vectors and dot products
+  why: Vectors represent everything in ML — words, images, parameters, gradients. The dot product is the most fundamental operation; every neural network layer computes thousands of them.
+  resource: 3Blue1Brown "Essence of Linear Algebra" episodes 1–2 (~25 min)
+  success_criterion: You can explain why dot product equals cos(θ) × |a| × |b| and what that means geometrically.
+  status: full
+
+- day: 3
+  month: 1
+  pillar: foundations
+  topic: Matrices as transformations
+  why: Every neural network layer is a matrix multiplication. Seeing matrices as transformations of space — not grids of numbers — changes how you read every line of ML code.
+  resource: 3Blue1Brown "Essence of Linear Algebra" episodes 3–5 (~30 min)
+  success_criterion: Given a 2×2 matrix, you can sketch how it transforms a unit square — rotation, scaling, shearing.
+  status: full
+
+- day: 4
+  month: 1
+  pillar: foundations
+  topic: Eigenvectors and the rest of linear algebra
+  why: Eigenvectors show up in PCA, attention scores, and stability analysis. You don't need expert-level — you need to recognize them in the wild.
+  resource: 3Blue1Brown "Essence of Linear Algebra" episodes 9, 10, 14 (~40 min, selective)
+  success_criterion: You can explain in plain words why PCA finds eigenvectors of the covariance matrix.
+  status: full
+
+- day: 5
+  month: 1
+  pillar: foundations
+  topic: Probability distributions you'll meet
+  why: Normal, Bernoulli, categorical, and uniform distributions appear everywhere — initialization, sampling, classification heads, regularization.
+  resource: Seeing Theory (Brown's interactive site) — chapters 1 and 2
+  success_criterion: You can sketch a normal distribution and explain what changes visually when you tweak μ and σ.
+  status: full
+
+- day: 6
+  month: 1
+  pillar: foundations
+  topic: Bayes' rule, deeply
+  why: Most classifiers are Bayesian under the hood. Once Bayes feels obvious, posterior reasoning becomes a daily superpower for thinking about evidence.
+  resource: 3Blue1Brown "Bayes' theorem, the geometry of changing beliefs" (~15 min)
+  success_criterion: Given disease prevalence and test accuracy, you can compute the chance someone with a positive test actually has the disease.
+  status: full
+
+- day: 7
+  month: 1
+  pillar: foundations
+  topic: Information theory basics
+  why: Cross-entropy is the standard classification loss — without information theory intuition you're memorizing formulas; with it, you understand why they're the right ones.
+  resource: Chris Olah "Visual Information Theory" blog post (~30 min careful read)
+  success_criterion: You can explain in plain words what entropy measures and why cross-entropy makes sense as a loss for classification.
+  status: full
+
+- day: 8
+  month: 1
+  pillar: foundations
+  topic: Derivatives — what you actually need
+  why: Gradient descent uses derivatives. You don't need a calc course — you need fluent intuition about slopes, gradients, and how functions change locally.
+  resource: 3Blue1Brown "Essence of Calculus" episodes 1–3 (~35 min)
+  success_criterion: You can describe what the derivative of a function tells you in plain English without using "rate of change."
+  status: full
+
+- day: 9
+  month: 1
+  pillar: foundations
+  topic: The chain rule and the heart of backprop
+  why: Backpropagation is just the chain rule applied repeatedly across layers. Nail this and deep learning stops being mysterious.
+  resource: First 30 min of Karpathy's "The spelled-out intro to neural networks and backpropagation" (micrograd)
+  success_criterion: You can compute df/dx for f(x) = sin(x²) without looking it up, and explain each step.
+  status: full
+
+- day: 10
+  month: 1
+  pillar: foundations
+  topic: Numpy as a thinking tool
+  why: Vectorized thinking changes how you write every line of ML code. Not "numpy syntax" — numpy as a different way of structuring computation.
+  resource: rougier "100 numpy exercises" on GitHub — work through 1–30
+  success_criterion: You've solved 30+ exercises without writing a Python for-loop where numpy could do it.
+  status: full
+
+- day: 11
+  month: 1
+  pillar: classical_ml
+  topic: Linear regression from scratch
+  why: Linear regression is the simplest ML model and a generalization of every more complex one. Building it from scratch teaches you what "fitting" actually means.
+  resource: Implement ordinary least squares in pure numpy. Plot the line. Compare your coefficients to sklearn's on a small dataset.
+  success_criterion: Your numpy implementation produces the same coefficients as sklearn on the same data.
+  status: full
+
+- day: 12
+  month: 1
+  pillar: classical_ml
+  topic: Gradient descent, intuitively
+  why: Gradient descent is THE optimization algorithm. Understanding it deeply transfers to every deep learning technique you'll learn later.
+  resource: Implement gradient descent for linear regression in numpy. Plot loss over iterations for three different learning rates.
+  success_criterion: You can show a loss curve going down, and explain why your learning rate choice affects whether you converge or diverge.
+  status: full
+
+- day: 13
+  month: 1
+  pillar: classical_ml
+  topic: Logistic regression and the sigmoid
+  why: The simplest classifier. Introduces sigmoid (used in attention gates), log-loss (used everywhere), and the idea that a probability can be the output of a model.
+  resource: Implement logistic regression in numpy on a 2D toy dataset. Plot the decision boundary.
+  success_criterion: You can explain why log-loss is used instead of MSE for classification problems.
+  status: full
+
+- day: 14
+  month: 1
+  pillar: classical_ml
+  topic: Decision trees from first principles
+  why: Most production tabular ML uses tree ensembles. Understand the unit before the ensemble.
+  resource: Read sklearn's docs on DecisionTreeClassifier and train one on iris. Inspect the tree structure with sklearn's plot_tree.
+  success_criterion: You can explain Gini impurity and why we pick splits that reduce it.
+  status: full
+
+- day: 15
+  month: 1
+  pillar: classical_ml
+  topic: Random forests and bias-variance
+  why: Random forests are the canonical example of how ensembling reduces variance. The bias-variance tradeoff stops being abstract once you see it concretely here.
+  resource: Read Breiman's original "Random Forests" paper, sections 1–2 only (it's surprisingly readable)
+  success_criterion: You can explain why averaging trees reduces variance but not bias, and why deeper trees have lower bias.
+  status: full
+
+- day: 16
+  month: 1
+  pillar: classical_ml
+  topic: Gradient boosting in 30 minutes
+  why: XGBoost and LightGBM still win most tabular Kaggle competitions and ship in countless production systems. You'll see them constantly in real work.
+  resource: XGBoost docs intro + the official "Get Started" notebook on a real dataset (titanic or housing)
+  success_criterion: You've trained an XGBoost model and can read and explain its feature_importances_ output.
+  status: full
+
+- day: 17
+  month: 1
+  pillar: classical_ml
+  topic: Data leakage — the silent killer
+  why: Most ML systems that fail in production fail because of data leakage during training. Detecting and preventing it is the highest-leverage skill in classical ML.
+  resource: Kaggle's "Data Leakage" tutorial (free, ~30 min) + the leakage chapter in Andrew Ng's "Machine Learning Yearning" (free PDF)
+  success_criterion: You can name three common ways data leakage happens and how to prevent each.
+  status: full
+
+- day: 18
+  month: 1
+  pillar: classical_ml
+  topic: Cross-validation patterns
+  why: K-fold, stratified, time-series, group — each prevents a different form of leakage. The right CV strategy is dataset-specific, and getting it wrong invalidates everything downstream.
+  resource: sklearn's Cross-validation user guide + apply each strategy to a relevant dataset (time-series CV on stock data, group CV on patient data)
+  success_criterion: Given a problem description, you can pick the right CV strategy and defend your choice.
+  status: full
+
+- day: 19
+  month: 1
+  pillar: classical_ml
+  topic: Classification metrics beyond accuracy
+  why: Accuracy is misleading on imbalanced data — which is most real-world data. Precision, recall, F1, and AUC each tell different stories about what your model is doing.
+  resource: Work through confusion-matrix examples manually for three different scenarios (medical screening, spam filter, fraud detection)
+  success_criterion: Given a business context, you can pick the right metric and explain why the others would mislead you here.
+  status: full
+
+- day: 20
+  month: 1
+  pillar: classical_ml
+  topic: Your first end-to-end ML project
+  why: Integration is the test. Going from raw data → preprocessing → model → evaluation → write-up is the actual skill — not any single step in isolation.
+  resource: Pick a Kaggle dataset (titanic if new to this, housing if you want a regression). Build the full pipeline. Write up findings as a README.
+  success_criterion: You have a notebook another person could read and understand without you explaining it.
+  status: full
+
+# ════════════════════════════════════════════════════════════════════════
+# MONTH 2 — Deep Learning Foundations (Days 21-40)
+# ════════════════════════════════════════════════════════════════════════
+# Goal: from "neural net" being a vague term to building one in PyTorch
+# and understanding every line. Heavy on Karpathy's lecture series.
+
+- {day: 21, month: 2, pillar: deep_learning, topic: The perceptron, status: stub}
+- {day: 22, month: 2, pillar: deep_learning, topic: Activations and why nonlinearity matters, status: stub}
+- {day: 23, month: 2, pillar: deep_learning, topic: MLPs from scratch, status: stub}
+- {day: 24, month: 2, pillar: deep_learning, topic: Backprop intuition, status: stub}
+- {day: 25, month: 2, pillar: deep_learning, topic: Backprop with the math, status: stub}
+- {day: 26, month: 2, pillar: deep_learning, topic: Loss functions deeply, status: stub}
+- {day: 27, month: 2, pillar: deep_learning, topic: Optimizers — SGD, momentum, Adam, status: stub}
+- {day: 28, month: 2, pillar: deep_learning, topic: Learning rate schedules, status: stub}
+- {day: 29, month: 2, pillar: deep_learning, topic: Initialization strategies, status: stub}
+- {day: 30, month: 2, pillar: deep_learning, topic: Regularization — dropout and weight decay, status: stub}
+- {day: 31, month: 2, pillar: deep_learning, topic: Batch normalization, status: stub}
+- {day: 32, month: 2, pillar: deep_learning, topic: Convolutional layers, status: stub}
+- {day: 33, month: 2, pillar: deep_learning, topic: CNN architectures end-to-end, status: stub}
+- {day: 34, month: 2, pillar: deep_learning, topic: Modern CNN tricks, status: stub}
+- {day: 35, month: 2, pillar: deep_learning, topic: RNNs — handling sequences, status: stub}
+- {day: 36, month: 2, pillar: deep_learning, topic: The vanishing gradient problem, status: stub}
+- {day: 37, month: 2, pillar: deep_learning, topic: LSTMs and GRUs, status: stub}
+- {day: 38, month: 2, pillar: deep_learning, topic: Embedding layers, status: stub}
+- {day: 39, month: 2, pillar: deep_learning, topic: Word2Vec — meaning from context, status: stub}
+- {day: 40, month: 2, pillar: deep_learning, topic: PyTorch — your first real model, status: stub}
+
+# ════════════════════════════════════════════════════════════════════════
+# MONTH 3 — Transformers & LLMs (Days 41-60)
+# ════════════════════════════════════════════════════════════════════════
+# Goal: from "attention" being a buzzword to having built and trained a
+# small transformer end-to-end. Karpathy's nanoGPT/makemore series is gold.
+
+- {day: 41, month: 3, pillar: transformers_llms, topic: Attention — the core idea, status: stub}
+- {day: 42, month: 3, pillar: transformers_llms, topic: Self-attention — query, key, value, status: stub}
+- {day: 43, month: 3, pillar: transformers_llms, topic: Multi-head attention, status: stub}
+- {day: 44, month: 3, pillar: transformers_llms, topic: Positional encoding, status: stub}
+- {day: 45, month: 3, pillar: transformers_llms, topic: The transformer block end-to-end, status: stub}
+- {day: 46, month: 3, pillar: transformers_llms, topic: Encoder vs. decoder vs. encoder-decoder, status: stub}
+- {day: 47, month: 3, pillar: transformers_llms, topic: BERT and masked language modeling, status: stub}
+- {day: 48, month: 3, pillar: transformers_llms, topic: GPT and causal language modeling, status: stub}
+- {day: 49, month: 3, pillar: transformers_llms, topic: Tokenization — BPE, SentencePiece, status: stub}
+- {day: 50, month: 3, pillar: transformers_llms, topic: Scaling laws, status: stub}
+- {day: 51, month: 3, pillar: transformers_llms, topic: Pretraining mechanics, status: stub}
+- {day: 52, month: 3, pillar: transformers_llms, topic: Fine-tuning — full vs. LoRA, status: stub}
+- {day: 53, month: 3, pillar: transformers_llms, topic: RLHF, status: stub}
+- {day: 54, month: 3, pillar: transformers_llms, topic: Constitutional AI and alignment approaches, status: stub}
+- {day: 55, month: 3, pillar: transformers_llms, topic: Inference — KV cache and generation speed, status: stub}
+- {day: 56, month: 3, pillar: transformers_llms, topic: Quantization, status: stub}
+- {day: 57, month: 3, pillar: transformers_llms, topic: Distillation, status: stub}
+- {day: 58, month: 3, pillar: transformers_llms, topic: Mixture of experts, status: stub}
+- {day: 59, month: 3, pillar: transformers_llms, topic: Long context techniques, status: stub}
+- {day: 60, month: 3, pillar: transformers_llms, topic: Reading model cards critically, status: stub}
+
+# ════════════════════════════════════════════════════════════════════════
+# MONTH 4 — Applied LLMs (Days 61-80)
+# ════════════════════════════════════════════════════════════════════════
+# Goal: this is the actual day-job of an AI engineer in 2026 — RAG,
+# prompting, evals, cost/latency. Most leverage if you ship things.
+
+- {day: 61, month: 4, pillar: applied_llms, topic: Embeddings in production, status: stub}
+- {day: 62, month: 4, pillar: applied_llms, topic: Vector databases compared, status: stub}
+- {day: 63, month: 4, pillar: applied_llms, topic: ANN algorithms — HNSW, IVF, status: stub}
+- {day: 64, month: 4, pillar: applied_llms, topic: Chunking strategies, status: stub}
+- {day: 65, month: 4, pillar: applied_llms, topic: RAG basics, status: stub}
+- {day: 66, month: 4, pillar: applied_llms, topic: RAG evaluation — where retrieval fails, status: stub}
+- {day: 67, month: 4, pillar: applied_llms, topic: Hybrid search — dense and sparse, status: stub}
+- {day: 68, month: 4, pillar: applied_llms, topic: Re-ranking with cross-encoders, status: stub}
+- {day: 69, month: 4, pillar: applied_llms, topic: Query rewriting, status: stub}
+- {day: 70, month: 4, pillar: applied_llms, topic: Multi-query and HyDE, status: stub}
+- {day: 71, month: 4, pillar: applied_llms, topic: Prompt engineering principles, status: stub}
+- {day: 72, month: 4, pillar: applied_llms, topic: Few-shot prompting, status: stub}
+- {day: 73, month: 4, pillar: applied_llms, topic: Chain of thought, status: stub}
+- {day: 74, month: 4, pillar: applied_llms, topic: Structured output and function calling, status: stub}
+- {day: 75, month: 4, pillar: applied_llms, topic: Self-consistency and ensembling LLMs, status: stub}
+- {day: 76, month: 4, pillar: applied_llms, topic: Building your own evals, status: stub}
+- {day: 77, month: 4, pillar: applied_llms, topic: LLM-as-judge — setup and pitfalls, status: stub}
+- {day: 78, month: 4, pillar: applied_llms, topic: Cost engineering — token math, caching, batching, status: stub}
+- {day: 79, month: 4, pillar: applied_llms, topic: Latency engineering — streaming, speculative decoding, status: stub}
+- {day: 80, month: 4, pillar: applied_llms, topic: Safety, guardrails, and input/output filtering, status: stub}
+
+# ════════════════════════════════════════════════════════════════════════
+# MONTH 5 — Agents & Tool Use (Days 81-100)
+# ════════════════════════════════════════════════════════════════════════
+# Goal: the frontier of where AI engineering is heading. Capstone target —
+# build an agent in your dental domain or for VeloMetrics that does
+# something real.
+
+- {day: 81, month: 5, pillar: agents, topic: The agent loop — observe-think-act, status: stub}
+- {day: 82, month: 5, pillar: agents, topic: ReAct — reasoning and acting interleaved, status: stub}
+- {day: 83, month: 5, pillar: agents, topic: Tool use at scale, status: stub}
+- {day: 84, month: 5, pillar: agents, topic: Planning — when to plan vs. react, status: stub}
+- {day: 85, month: 5, pillar: agents, topic: Task decomposition, status: stub}
+- {day: 86, month: 5, pillar: agents, topic: Memory — short-term, long-term, episodic, status: stub}
+- {day: 87, month: 5, pillar: agents, topic: Reflection — agents critiquing themselves, status: stub}
+- {day: 88, month: 5, pillar: agents, topic: Multi-agent orchestration patterns, status: stub}
+- {day: 89, month: 5, pillar: agents, topic: The MCP protocol, status: stub}
+- {day: 90, month: 5, pillar: agents, topic: Browser agents, status: stub}
+- {day: 91, month: 5, pillar: agents, topic: Code agents — copilot to autonomous, status: stub}
+- {day: 92, month: 5, pillar: agents, topic: Agent evaluation — how do you know it works, status: stub}
+- {day: 93, month: 5, pillar: agents, topic: Agent benchmarks — SWE-bench, AgentBench, status: stub}
+- {day: 94, month: 5, pillar: agents, topic: Failure modes — looping, hallucination, drift, status: stub}
+- {day: 95, month: 5, pillar: agents, topic: Cost control in agent workflows, status: stub}
+- {day: 96, month: 5, pillar: agents, topic: Streaming agent state to a UI, status: stub}
+- {day: 97, month: 5, pillar: agents, topic: Build an agent in under 100 lines, status: stub}
+- {day: 98, month: 5, pillar: agents, topic: Frameworks vs. raw — when each helps, status: stub}
+- {day: 99, month: 5, pillar: agents, topic: Production agent dissection, status: stub}
+- {day: 100, month: 5, pillar: agents, topic: Designing your own dental-domain agent, status: stub}
+
+# ════════════════════════════════════════════════════════════════════════
+# MONTH 6 — ML Systems & Production (Days 101-120)
+# ════════════════════════════════════════════════════════════════════════
+# Goal: where your data engineering background meets AI engineering.
+# Final capstone — an ML system design walkthrough you could deliver
+# in an interview.
+
+- {day: 101, month: 6, pillar: ml_systems, topic: ML system design framing, status: stub}
+- {day: 102, month: 6, pillar: ml_systems, topic: Serving — batch vs. real-time, status: stub}
+- {day: 103, month: 6, pillar: ml_systems, topic: Latency budgets, status: stub}
+- {day: 104, month: 6, pillar: ml_systems, topic: Caching layers in ML systems, status: stub}
+- {day: 105, month: 6, pillar: ml_systems, topic: Load balancing for LLM serving, status: stub}
+- {day: 106, month: 6, pillar: ml_systems, topic: GPU economics — self-host vs. API, status: stub}
+- {day: 107, month: 6, pillar: ml_systems, topic: Inference servers — vLLM, TGI, Triton, status: stub}
+- {day: 108, month: 6, pillar: ml_systems, topic: Monitoring the four golden signals, status: stub}
+- {day: 109, month: 6, pillar: ml_systems, topic: Drift detection — data and concept drift, status: stub}
+- {day: 110, month: 6, pillar: ml_systems, topic: A/B testing for ML, status: stub}
+- {day: 111, month: 6, pillar: ml_systems, topic: Shadow deployment and gradual rollouts, status: stub}
+- {day: 112, month: 6, pillar: ml_systems, topic: Feature stores — when you need one, status: stub}
+- {day: 113, month: 6, pillar: ml_systems, topic: Model registries and lineage, status: stub}
+- {day: 114, month: 6, pillar: ml_systems, topic: Experiment tracking, status: stub}
+- {day: 115, month: 6, pillar: ml_systems, topic: CI/CD for ML — tests that catch real problems, status: stub}
+- {day: 116, month: 6, pillar: ml_systems, topic: Data validation — Great Expectations, dbt tests, status: stub}
+- {day: 117, month: 6, pillar: ml_systems, topic: Privacy and compliance basics, status: stub}
+- {day: 118, month: 6, pillar: ml_systems, topic: Cost monitoring and anomaly detection, status: stub}
+- {day: 119, month: 6, pillar: ml_systems, topic: ML incident response, status: stub}
+- {day: 120, month: 6, pillar: ml_systems, topic: ML systems design interview — full walkthrough, status: stub}
