@@ -16,21 +16,11 @@
 #   why               — 1–2 sentences, used by bot to explain why this matters
 #   resource          — specific recommendation, prefer free + < 60 min
 #   success_criterion — concrete check ("you understand this when…")
-#   status            — "full" or "stub" (stubs need detail filled in
-#                       before that day arrives — done together each session)
-#
-# Detail status:
-#   Days 1–20  (Month 1): full — these are the calibration days
-#   Days 21–120 (Months 2–6): stub — expanded session by session as we approach
-#
-# This shape is deliberate: don't commit detail to topics that need
-# user calibration; do commit detail to what's runnable right now.
+#   status            — "full" or "stub"
 
 # ════════════════════════════════════════════════════════════════════════
 # MONTH 1 — Foundations & Classical ML (Days 1-20)
 # ════════════════════════════════════════════════════════════════════════
-# Goal: the math and ML basics you actually need. Skips python/SQL/pandas
-# (you have them). Heavy on intuition over formalism.
 
 - day: 1
   month: 1
@@ -215,136 +205,919 @@
 # ════════════════════════════════════════════════════════════════════════
 # MONTH 2 — Deep Learning Foundations (Days 21-40)
 # ════════════════════════════════════════════════════════════════════════
-# Goal: from "neural net" being a vague term to building one in PyTorch
-# and understanding every line. Heavy on Karpathy's lecture series.
 
-- {day: 21, month: 2, pillar: deep_learning, topic: The perceptron, status: stub}
-- {day: 22, month: 2, pillar: deep_learning, topic: Activations and why nonlinearity matters, status: stub}
-- {day: 23, month: 2, pillar: deep_learning, topic: MLPs from scratch, status: stub}
-- {day: 24, month: 2, pillar: deep_learning, topic: Backprop intuition, status: stub}
-- {day: 25, month: 2, pillar: deep_learning, topic: Backprop with the math, status: stub}
-- {day: 26, month: 2, pillar: deep_learning, topic: Loss functions deeply, status: stub}
-- {day: 27, month: 2, pillar: deep_learning, topic: Optimizers — SGD, momentum, Adam, status: stub}
-- {day: 28, month: 2, pillar: deep_learning, topic: Learning rate schedules, status: stub}
-- {day: 29, month: 2, pillar: deep_learning, topic: Initialization strategies, status: stub}
-- {day: 30, month: 2, pillar: deep_learning, topic: Regularization — dropout and weight decay, status: stub}
-- {day: 31, month: 2, pillar: deep_learning, topic: Batch normalization, status: stub}
-- {day: 32, month: 2, pillar: deep_learning, topic: Convolutional layers, status: stub}
-- {day: 33, month: 2, pillar: deep_learning, topic: CNN architectures end-to-end, status: stub}
-- {day: 34, month: 2, pillar: deep_learning, topic: Modern CNN tricks, status: stub}
-- {day: 35, month: 2, pillar: deep_learning, topic: RNNs — handling sequences, status: stub}
-- {day: 36, month: 2, pillar: deep_learning, topic: The vanishing gradient problem, status: stub}
-- {day: 37, month: 2, pillar: deep_learning, topic: LSTMs and GRUs, status: stub}
-- {day: 38, month: 2, pillar: deep_learning, topic: Embedding layers, status: stub}
-- {day: 39, month: 2, pillar: deep_learning, topic: Word2Vec — meaning from context, status: stub}
-- {day: 40, month: 2, pillar: deep_learning, topic: PyTorch — your first real model, status: stub}
+- day: 21
+  month: 2
+  pillar: deep_learning
+  topic: The perceptron
+  why: The perceptron is the atom of every neural network. Understanding what it computes — a weighted sum passed through a threshold — makes every layer you'll ever read make sense.
+  resource: Karpathy "micrograd" repo on GitHub — read the engine.py file (it's 100 lines) and trace one forward pass by hand.
+  success_criterion: You can draw a single perceptron, label every weight and bias, and compute its output for a given input by hand.
+  status: full
+
+- day: 22
+  month: 2
+  pillar: deep_learning
+  topic: Activations and why nonlinearity matters
+  why: Without nonlinear activations, stacking layers collapses into a single linear transformation. Activations are what make depth useful.
+  resource: Distill.pub "Visualizing Neural Networks" — focus on the activation section. Then plot ReLU, sigmoid, tanh, and GELU in a notebook.
+  success_criterion: You can explain why a network with only linear layers is equivalent to a single linear layer, regardless of depth.
+  status: full
+
+- day: 23
+  month: 2
+  pillar: deep_learning
+  topic: MLPs from scratch
+  why: Building a multi-layer perceptron in numpy — forward pass, loss, backward pass — closes the gap between "I know what a neural network is" and "I understand what it computes."
+  resource: Karpathy "The spelled-out intro to neural networks and backpropagation" (YouTube, full video) — follow along in a notebook.
+  success_criterion: You have a working 2-layer MLP in numpy that trains on a toy dataset and shows decreasing loss.
+  status: full
+
+- day: 24
+  month: 2
+  pillar: deep_learning
+  topic: Backprop intuition
+  why: Backprop is just the chain rule, applied layer by layer in reverse. Getting the intuition right means you'll never be confused by gradient flow again.
+  resource: Karpathy's micrograd walkthrough video — pause and re-derive each gradient yourself before he shows it.
+  success_criterion: Without looking at code, you can describe what backprop does to a single linear layer followed by ReLU.
+  status: full
+
+- day: 25
+  month: 2
+  pillar: deep_learning
+  topic: Backprop with the math
+  why: The intuition from day 24 needs to harden into something you can use when debugging vanishing gradients or writing custom layers.
+  resource: CS231n lecture notes on backpropagation (Stanford, free online) — work through the vectorized examples.
+  success_criterion: Given a short computation graph, you can compute all gradients by hand using the chain rule.
+  status: full
+
+- day: 26
+  month: 2
+  pillar: deep_learning
+  topic: Loss functions deeply
+  why: The loss function defines what the network is optimizing. Choosing the wrong one is the most common silent failure in applied ML — the model trains but learns the wrong thing.
+  resource: Fast.ai's "Practical Deep Learning" lesson on loss functions (free). Supplement with the PyTorch loss functions docs — read the math behind MSE, BCE, CrossEntropy, and Huber.
+  success_criterion: You can explain when you'd use each of MSE, BCE, and CrossEntropy, and what goes wrong if you mix them up.
+  status: full
+
+- day: 27
+  month: 2
+  pillar: deep_learning
+  topic: Optimizers — SGD, momentum, Adam
+  why: Adam is the default optimizer for most deep learning, but knowing why it beats plain SGD — and when it doesn't — makes you a better debugger when training stalls.
+  resource: Sebastian Ruder's "An overview of gradient descent optimization algorithms" blog post (free, ~45 min read).
+  success_criterion: You can explain what momentum adds to SGD and why Adam's adaptive learning rates help on sparse gradients.
+  status: full
+
+- day: 28
+  month: 2
+  pillar: deep_learning
+  topic: Learning rate schedules
+  why: A fixed learning rate is almost always suboptimal. Warmup, cosine decay, and cyclic schedules can be the difference between a model that converges and one that doesn't.
+  resource: PyTorch lr_scheduler docs + fast.ai's learning rate finder explanation. Run a learning rate range test on a toy model.
+  success_criterion: You can describe what cosine annealing does to the learning rate over training and why it helps.
+  status: full
+
+- day: 29
+  month: 2
+  pillar: deep_learning
+  topic: Initialization strategies
+  why: Bad initialization causes vanishing or exploding gradients before training even starts. Xavier and Kaiming init solve this for specific activation functions — knowing which to use is basic hygiene.
+  resource: Karpathy's makemore series, part 3 — covers activations and initialization concretely.
+  success_criterion: You can explain why Xavier init uses 1/√n and when you'd use Kaiming instead.
+  status: full
+
+- day: 30
+  month: 2
+  pillar: deep_learning
+  topic: Regularization — dropout and weight decay
+  why: Overfitting is the default failure mode of neural networks. Dropout and weight decay are the two most universal fixes — understanding what they actually do prevents cargo-culting them.
+  resource: The original Dropout paper (Srivastava et al., 2014) — just the first 4 pages. Then implement dropout from scratch in numpy.
+  success_criterion: You can explain what dropout does at train time vs. inference time and why the scaling factor matters.
+  status: full
+
+- day: 31
+  month: 2
+  pillar: deep_learning
+  topic: Batch normalization
+  why: Batch norm stabilizes training, allows higher learning rates, and acts as a regularizer. It's in almost every modern architecture — reading code without understanding it means reading blindly.
+  resource: The original BatchNorm paper (Ioffe & Szegedy, 2015) — first 5 pages. Then trace what happens to activations during a forward pass with and without it.
+  success_criterion: You can explain what batch norm normalizes, what γ and β do, and why inference uses running statistics instead of batch statistics.
+  status: full
+
+- day: 32
+  month: 2
+  pillar: deep_learning
+  topic: Convolutional layers
+  why: CNNs are still the backbone of vision tasks and appear in audio, time-series, and hybrid architectures. Understanding convolution — what the kernel does, what stride and padding control — is foundational.
+  resource: CS231n notes on convolutional networks (Stanford, free). Implement a single conv layer in numpy to see the sliding window computation.
+  success_criterion: Given an input shape, kernel size, stride, and padding, you can compute the output shape without a calculator.
+  status: full
+
+- day: 33
+  month: 2
+  pillar: deep_learning
+  topic: CNN architectures end-to-end
+  why: LeNet → AlexNet → ResNet traces the conceptual leaps that made deep vision work. Each solved a specific failure mode; knowing what problem each solved helps you recognize similar problems in new architectures.
+  resource: The ResNet paper (He et al., 2015) — read sections 1, 3, and 4. Focus on the residual connection diagram and the motivation for it.
+  success_criterion: You can explain what problem skip connections solve and draw a residual block from memory.
+  status: full
+
+- day: 34
+  month: 2
+  pillar: deep_learning
+  topic: Modern CNN tricks
+  why: Depthwise separable convolutions, squeeze-and-excitation, and data augmentation are standard in production vision systems. They show up in code you'll read and debug.
+  resource: EfficientNet paper (Tan & Le, 2019) — abstract and section 3 only. Then read the PyTorch torchvision transforms docs for augmentation options.
+  success_criterion: You can explain what depthwise separable convolution does and why it's faster than standard convolution.
+  status: full
+
+- day: 35
+  month: 2
+  pillar: deep_learning
+  topic: RNNs — handling sequences
+  why: RNNs are the conceptual predecessor to attention. Understanding what they do — and why they struggle — makes the transformer's design decisions obvious rather than arbitrary.
+  resource: Karpathy's "The Unreasonable Effectiveness of Recurrent Neural Networks" blog post (~30 min). Then implement a minimal character-level RNN in numpy.
+  success_criterion: You can describe how an RNN processes a sequence step by step and where its hidden state comes from.
+  status: full
+
+- day: 36
+  month: 2
+  pillar: deep_learning
+  topic: The vanishing gradient problem
+  why: Vanishing gradients are why plain RNNs can't learn long-range dependencies — and why LSTMs and transformers were invented. This is not an academic concern; it's the root cause of a class of training failures you'll encounter.
+  resource: Distill.pub "Research Debt" post for context, then CS231n notes on RNN gradients. Visualize gradient magnitudes across layers in a deep network in a notebook.
+  success_criterion: You can explain why gradients vanish in deep networks and what property an architecture needs to avoid it.
+  status: full
+
+- day: 37
+  month: 2
+  pillar: deep_learning
+  topic: LSTMs and GRUs
+  why: LSTMs solve vanishing gradients with a gated cell state. GRUs simplify the design with fewer parameters. Both appear in production systems for sequence tasks where transformers are overkill.
+  resource: Chris Olah's "Understanding LSTM Networks" blog post — the diagrams are the best explanation that exists (~30 min).
+  success_criterion: You can draw an LSTM cell, label the three gates and the cell state, and explain what each gate controls.
+  status: full
+
+- day: 38
+  month: 2
+  pillar: deep_learning
+  topic: Embedding layers
+  why: Embeddings map discrete tokens (words, user IDs, categories) into continuous vector space where similarity is meaningful. They're the interface between symbolic data and neural computation.
+  resource: Karpathy's makemore series, part 2 — covers embeddings concretely with character-level language modeling.
+  success_criterion: You can explain what an embedding layer is doing mathematically and why it's equivalent to a lookup table into a learned weight matrix.
+  status: full
+
+- day: 39
+  month: 2
+  pillar: deep_learning
+  topic: Word2Vec — meaning from context
+  why: Word2Vec introduced the idea that word meaning can be learned from co-occurrence. The skip-gram and CBOW objectives are conceptual ancestors of masked language modeling and contrastive learning.
+  resource: The original Word2Vec paper (Mikolov et al., 2013) — sections 1–3 only. Then explore a pretrained Word2Vec model in gensim to see the geometry of the embedding space.
+  success_criterion: You can explain the skip-gram objective in one sentence and give an example of a word analogy the embeddings encode.
+  status: full
+
+- day: 40
+  month: 2
+  pillar: deep_learning
+  topic: PyTorch — your first real model
+  why: PyTorch is the lingua franca of research and production ML. Getting fluent means you can read any model implementation, fine-tune anything, and write custom components when needed.
+  resource: PyTorch's official "60 Minute Blitz" tutorial — do it in a notebook, don't just read it. Then port your numpy MLP from day 23 into PyTorch.
+  success_criterion: You have a PyTorch model that trains, you understand what .backward() does, and you can explain the role of optimizer.zero_grad().
+  status: full
 
 # ════════════════════════════════════════════════════════════════════════
 # MONTH 3 — Transformers & LLMs (Days 41-60)
 # ════════════════════════════════════════════════════════════════════════
-# Goal: from "attention" being a buzzword to having built and trained a
-# small transformer end-to-end. Karpathy's nanoGPT/makemore series is gold.
 
-- {day: 41, month: 3, pillar: transformers_llms, topic: Attention — the core idea, status: stub}
-- {day: 42, month: 3, pillar: transformers_llms, topic: Self-attention — query, key, value, status: stub}
-- {day: 43, month: 3, pillar: transformers_llms, topic: Multi-head attention, status: stub}
-- {day: 44, month: 3, pillar: transformers_llms, topic: Positional encoding, status: stub}
-- {day: 45, month: 3, pillar: transformers_llms, topic: The transformer block end-to-end, status: stub}
-- {day: 46, month: 3, pillar: transformers_llms, topic: Encoder vs. decoder vs. encoder-decoder, status: stub}
-- {day: 47, month: 3, pillar: transformers_llms, topic: BERT and masked language modeling, status: stub}
-- {day: 48, month: 3, pillar: transformers_llms, topic: GPT and causal language modeling, status: stub}
-- {day: 49, month: 3, pillar: transformers_llms, topic: Tokenization — BPE, SentencePiece, status: stub}
-- {day: 50, month: 3, pillar: transformers_llms, topic: Scaling laws, status: stub}
-- {day: 51, month: 3, pillar: transformers_llms, topic: Pretraining mechanics, status: stub}
-- {day: 52, month: 3, pillar: transformers_llms, topic: Fine-tuning — full vs. LoRA, status: stub}
-- {day: 53, month: 3, pillar: transformers_llms, topic: RLHF, status: stub}
-- {day: 54, month: 3, pillar: transformers_llms, topic: Constitutional AI and alignment approaches, status: stub}
-- {day: 55, month: 3, pillar: transformers_llms, topic: Inference — KV cache and generation speed, status: stub}
-- {day: 56, month: 3, pillar: transformers_llms, topic: Quantization, status: stub}
-- {day: 57, month: 3, pillar: transformers_llms, topic: Distillation, status: stub}
-- {day: 58, month: 3, pillar: transformers_llms, topic: Mixture of experts, status: stub}
-- {day: 59, month: 3, pillar: transformers_llms, topic: Long context techniques, status: stub}
-- {day: 60, month: 3, pillar: transformers_llms, topic: Reading model cards critically, status: stub}
+- day: 41
+  month: 3
+  pillar: transformers_llms
+  topic: Attention — the core idea
+  why: Attention lets a model weight how much each part of the input matters when producing each part of the output. It replaced the bottleneck of RNNs compressing everything into a fixed-size vector.
+  resource: Jay Alammar's "Visualizing A Neural Machine Translation Model" blog post — the diagrams make the mechanism concrete.
+  success_criterion: You can describe what attention computes in plain English without using the words "query," "key," or "value."
+  status: full
+
+- day: 42
+  month: 3
+  pillar: transformers_llms
+  topic: Self-attention — query, key, value
+  why: Self-attention is the mechanism that lets each token in a sequence attend to every other token. Understanding Q, K, V means you can read any transformer implementation without confusion.
+  resource: Karpathy's "Let's build GPT" video — watch the self-attention section (~40 min in). Implement scaled dot-product attention in numpy.
+  success_criterion: You can implement scaled dot-product attention from scratch given Q, K, V matrices, and explain why the √d_k scaling matters.
+  status: full
+
+- day: 43
+  month: 3
+  pillar: transformers_llms
+  topic: Multi-head attention
+  why: Multiple attention heads let the model attend to different aspects of the input simultaneously — one head might track syntax, another coreference. Single-head attention is too narrow for rich representations.
+  resource: The original "Attention Is All You Need" paper (Vaswani et al., 2017) — section 3.2 only. Then implement multi-head attention in PyTorch.
+  success_criterion: You can explain what happens when you concatenate the outputs of multiple attention heads and why projecting them down matters.
+  status: full
+
+- day: 44
+  month: 3
+  pillar: transformers_llms
+  topic: Positional encoding
+  why: Attention is permutation-invariant — without positional encoding, the model can't tell token order. Understanding sinusoidal and learned positional encodings explains a lot of architectural choices.
+  resource: "Attention Is All You Need" section 3.5. Then plot the sinusoidal encoding matrix to see the pattern visually.
+  success_criterion: You can explain why transformers need positional encoding at all and what property sinusoidal encodings have that makes them generalizable to unseen lengths.
+  status: full
+
+- day: 45
+  month: 3
+  pillar: transformers_llms
+  topic: The transformer block end-to-end
+  why: The transformer block — attention + FFN + layer norm + residual — is the unit that gets stacked. Understanding it completely means you can read GPT, BERT, T5, and every derivative without stopping.
+  resource: Karpathy's "Let's build GPT" — watch the full video and build it. The implementation is under 300 lines.
+  success_criterion: You have a working transformer block in PyTorch and can describe what each sub-component contributes.
+  status: full
+
+- day: 46
+  month: 3
+  pillar: transformers_llms
+  topic: Encoder vs. decoder vs. encoder-decoder
+  why: BERT uses encoders, GPT uses decoders, T5 uses both. The architectural choice determines what the model can do — and mixing them up is a common source of confusion when choosing a base model.
+  resource: Hugging Face's "The Illustrated Transformer" summary page. Then read the model cards for BERT-base, GPT-2, and T5-small to see how each is used.
+  success_criterion: You can explain what causal masking does in a decoder and why an encoder doesn't need it.
+  status: full
+
+- day: 47
+  month: 3
+  pillar: transformers_llms
+  topic: BERT and masked language modeling
+  why: BERT's masked language modeling objective produces representations that encode bidirectional context — useful for classification, NER, and retrieval. Most embedding models are BERT-style.
+  resource: The original BERT paper (Devlin et al., 2018) — abstract and sections 3.1–3.3. Then fine-tune bert-base-uncased on a text classification task using Hugging Face Trainer.
+  success_criterion: You can explain the difference between the MLM and NSP objectives and why MLM produces better sentence representations.
+  status: full
+
+- day: 48
+  month: 3
+  pillar: transformers_llms
+  topic: GPT and causal language modeling
+  why: GPT's autoregressive objective — predict the next token — scales remarkably well and produces models that can do almost anything in context. Understanding it is the foundation for prompt engineering and fine-tuning.
+  resource: The GPT-2 paper (Radford et al., 2019) — sections 1–3. Then generate text with GPT-2 using Hugging Face and observe how temperature and top-p affect outputs.
+  success_criterion: You can explain why causal masking is necessary for autoregressive generation and what "teacher forcing" means during training.
+  status: full
+
+- day: 49
+  month: 3
+  pillar: transformers_llms
+  topic: Tokenization — BPE, SentencePiece
+  why: Tokenization is the unsexy but critical preprocessing step. Wrong tokenization breaks multilingual models, inflates costs, and creates subtle bugs. You need to know what your tokens actually are.
+  resource: Hugging Face's tokenizer tutorial (free). Then inspect the tokenization of several tricky inputs — code, Polish text, numbers — across GPT-4 and BERT tokenizers using their online tools.
+  success_criterion: You can explain what byte-pair encoding does, why "Warsaw" might tokenize differently than "warsaw," and what the vocabulary size controls.
+  status: full
+
+- day: 50
+  month: 3
+  pillar: transformers_llms
+  topic: Scaling laws
+  why: Scaling laws predict model performance from compute, data, and parameter count. Understanding them explains why the field bets on bigger models and helps you choose model size for a given budget.
+  resource: The Chinchilla paper (Hoffmann et al., 2022) — abstract, introduction, and Figure 1. Compare to the original Kaplan et al. (2020) scaling laws paper in one paragraph.
+  success_criterion: You can explain the Chinchilla finding about the optimal ratio of tokens to parameters and why it changed how large models are trained.
+  status: full
+
+- day: 51
+  month: 3
+  pillar: transformers_llms
+  topic: Pretraining mechanics
+  why: Knowing how pretraining works — data mixture, learning rate schedule, infrastructure choices — contextualizes why foundation models behave the way they do and what their failure modes are.
+  resource: The LLaMA paper (Touvron et al., 2023) — sections 2 and 3. Focus on data curation and training setup.
+  success_criterion: You can describe the three main decisions in pretraining a large language model and the tradeoffs in each.
+  status: full
+
+- day: 52
+  month: 3
+  pillar: transformers_llms
+  topic: Fine-tuning — full vs. LoRA
+  why: Full fine-tuning is expensive and often unnecessary. LoRA fine-tunes a tiny fraction of parameters and matches full fine-tuning on most tasks — it's the standard for adapting large models cheaply.
+  resource: The LoRA paper (Hu et al., 2021) — sections 1–4. Then fine-tune a small model with LoRA using Hugging Face PEFT on a toy classification task.
+  success_criterion: You can explain what LoRA injects into the model, why the rank parameter controls the number of trainable parameters, and when you'd prefer full fine-tuning over LoRA.
+  status: full
+
+- day: 53
+  month: 3
+  pillar: transformers_llms
+  topic: RLHF
+  why: RLHF is how GPT-4, Claude, and Gemini go from a pretrained base to something that follows instructions and avoids harmful outputs. Understanding it demystifies alignment and the gap between base and instruct models.
+  resource: The InstructGPT paper (Ouyang et al., 2022) — sections 1–3. Focus on the three training stages.
+  success_criterion: You can describe the three stages of RLHF — supervised fine-tuning, reward modeling, and PPO — and explain what each stage contributes.
+  status: full
+
+- day: 54
+  month: 3
+  pillar: transformers_llms
+  topic: Constitutional AI and alignment approaches
+  why: Constitutional AI and DPO are alternatives to RLHF that are simpler to implement. As alignment becomes part of the AI engineer job, knowing the toolkit matters.
+  resource: Anthropic's Constitutional AI paper (2022) — sections 1 and 2. Then read the DPO paper (Rafailov et al., 2023) abstract and introduction.
+  success_criterion: You can explain in two sentences how Constitutional AI differs from RLHF and what DPO avoids by not training a separate reward model.
+  status: full
+
+- day: 55
+  month: 3
+  pillar: transformers_llms
+  topic: Inference — KV cache and generation speed
+  why: The KV cache is what makes autoregressive generation fast enough to be interactive. Without understanding it, you can't reason about latency, memory budgets, or why certain context lengths are expensive.
+  resource: Andrej Karpathy's "LLM inference in C" talk (YouTube, ~45 min) — covers KV cache concretely. Supplement with vLLM's documentation introduction.
+  success_criterion: You can explain what the KV cache stores, why it grows with sequence length, and what memory pressure it creates at long contexts.
+  status: full
+
+- day: 56
+  month: 3
+  pillar: transformers_llms
+  topic: Quantization
+  why: Quantization reduces model size and inference cost with minimal quality loss. 4-bit quantized models run on consumer hardware; 8-bit models fit on smaller GPUs. This is how you ship LLMs cheaply.
+  resource: Hugging Face's bitsandbytes + GPTQ documentation. Load a 7B model in 4-bit on a free Colab GPU and compare output quality to the full-precision version.
+  success_criterion: You can explain the difference between post-training quantization and quantization-aware training, and what INT4 vs INT8 means for model size.
+  status: full
+
+- day: 57
+  month: 3
+  pillar: transformers_llms
+  topic: Distillation
+  why: Knowledge distillation produces smaller, faster models that retain most of a large model's capability. DistilBERT, Phi, and Gemma are distilled. Understanding it explains why small models punch above their parameter count.
+  resource: The DistilBERT paper (Sanh et al., 2019) — sections 1–3. Focus on the soft-label training objective.
+  success_criterion: You can explain what the "soft targets" are in knowledge distillation and why they carry more information than hard labels.
+  status: full
+
+- day: 58
+  month: 3
+  pillar: transformers_llms
+  topic: Mixture of experts
+  why: MoE models like Mixtral route each token to a subset of "expert" layers, giving large model capacity at the inference cost of a smaller model. Understanding MoE explains why some models are described by both their total and active parameter counts.
+  resource: The Mixtral paper (Mistral AI, 2023) — sections 1–3. Then compare Mixtral-8x7B's total vs. active parameters and what that means for VRAM requirements.
+  success_criterion: You can explain what a router does in MoE, what "top-k experts" means, and why MoE models are efficient at inference despite having more total parameters.
+  status: full
+
+- day: 59
+  month: 3
+  pillar: transformers_llms
+  topic: Long context techniques
+  why: Context windows have grown from 2K to 200K+ tokens. RoPE scaling, sliding window attention, and retrieval augmentation each take a different approach — knowing the tradeoffs lets you choose the right one.
+  resource: The Longformer paper (Beltagy et al., 2020) — sections 1–3. Then read Anthropic's technical post on Claude's 100K context window.
+  success_criterion: You can explain what sliding window attention sacrifices compared to full attention, and when you'd prefer retrieval over a long context window.
+  status: full
+
+- day: 60
+  month: 3
+  pillar: transformers_llms
+  topic: Reading model cards critically
+  why: Model cards are the primary artifact for choosing a foundation model. Reading them critically — benchmarks, training data, limitations, license — is a professional skill that prevents expensive mistakes.
+  resource: Read the model cards for Llama-3-8B, Mistral-7B-Instruct, and Claude-3-Haiku side by side. Note what each reveals and what each omits.
+  success_criterion: Given a model card, you can identify the three most important things it tells you about the model's fit for a specific production use case.
+  status: full
 
 # ════════════════════════════════════════════════════════════════════════
 # MONTH 4 — Applied LLMs (Days 61-80)
 # ════════════════════════════════════════════════════════════════════════
-# Goal: this is the actual day-job of an AI engineer in 2026 — RAG,
-# prompting, evals, cost/latency. Most leverage if you ship things.
 
-- {day: 61, month: 4, pillar: applied_llms, topic: Embeddings in production, status: stub}
-- {day: 62, month: 4, pillar: applied_llms, topic: Vector databases compared, status: stub}
-- {day: 63, month: 4, pillar: applied_llms, topic: ANN algorithms — HNSW, IVF, status: stub}
-- {day: 64, month: 4, pillar: applied_llms, topic: Chunking strategies, status: stub}
-- {day: 65, month: 4, pillar: applied_llms, topic: RAG basics, status: stub}
-- {day: 66, month: 4, pillar: applied_llms, topic: RAG evaluation — where retrieval fails, status: stub}
-- {day: 67, month: 4, pillar: applied_llms, topic: Hybrid search — dense and sparse, status: stub}
-- {day: 68, month: 4, pillar: applied_llms, topic: Re-ranking with cross-encoders, status: stub}
-- {day: 69, month: 4, pillar: applied_llms, topic: Query rewriting, status: stub}
-- {day: 70, month: 4, pillar: applied_llms, topic: Multi-query and HyDE, status: stub}
-- {day: 71, month: 4, pillar: applied_llms, topic: Prompt engineering principles, status: stub}
-- {day: 72, month: 4, pillar: applied_llms, topic: Few-shot prompting, status: stub}
-- {day: 73, month: 4, pillar: applied_llms, topic: Chain of thought, status: stub}
-- {day: 74, month: 4, pillar: applied_llms, topic: Structured output and function calling, status: stub}
-- {day: 75, month: 4, pillar: applied_llms, topic: Self-consistency and ensembling LLMs, status: stub}
-- {day: 76, month: 4, pillar: applied_llms, topic: Building your own evals, status: stub}
-- {day: 77, month: 4, pillar: applied_llms, topic: LLM-as-judge — setup and pitfalls, status: stub}
-- {day: 78, month: 4, pillar: applied_llms, topic: Cost engineering — token math, caching, batching, status: stub}
-- {day: 79, month: 4, pillar: applied_llms, topic: Latency engineering — streaming, speculative decoding, status: stub}
-- {day: 80, month: 4, pillar: applied_llms, topic: Safety, guardrails, and input/output filtering, status: stub}
+- day: 61
+  month: 4
+  pillar: applied_llms
+  topic: Embeddings in production
+  why: Embeddings are the foundation of semantic search, RAG, and recommendation. Knowing which model to use, how to generate them cheaply, and how dimensionality affects quality is day-one applied AI engineering.
+  resource: Hugging Face's MTEB leaderboard — read the top 5 models, understand what the benchmarks measure. Then embed 1,000 sentences with a local model and measure throughput.
+  success_criterion: You can explain the tradeoff between embedding model size and retrieval quality, and name one model you'd use for each of high quality, low latency, and multilingual.
+  status: full
+
+- day: 62
+  month: 4
+  pillar: applied_llms
+  topic: Vector databases compared
+  why: Pinecone, Weaviate, Qdrant, pgvector — each has different tradeoffs on cost, latency, and operational complexity. Choosing the wrong one creates painful migrations later.
+  resource: Qdrant's documentation introduction + the pgvector README. Build a tiny semantic search demo with both and compare query latency.
+  success_criterion: You can describe when you'd choose pgvector over a dedicated vector DB, and what you give up.
+  status: full
+
+- day: 63
+  month: 4
+  pillar: applied_llms
+  topic: ANN algorithms — HNSW, IVF
+  why: Vector databases use approximate nearest neighbor algorithms. Understanding HNSW and IVF means you can tune index parameters intelligently instead of guessing at recall vs. latency tradeoffs.
+  resource: "Billion-scale similarity search with GPUs" (Faiss paper) — introduction and section 2 only. Then read Qdrant's documentation on HNSW parameters.
+  success_criterion: You can explain what the ef_construction and m parameters in HNSW control and how they affect the recall/speed tradeoff.
+  status: full
+
+- day: 64
+  month: 4
+  pillar: applied_llms
+  topic: Chunking strategies
+  why: How you split documents before embedding determines retrieval quality more than the embedding model. Fixed-size, semantic, and hierarchical chunking each suit different document types.
+  resource: Greg Kamradt's "5 Levels of Text Splitting" notebook on GitHub — run it and compare retrieval quality across strategies on a document you care about.
+  success_criterion: Given a document type (technical manual, news article, code), you can justify a chunking strategy and its chunk size.
+  status: full
+
+- day: 65
+  month: 4
+  pillar: applied_llms
+  topic: RAG basics
+  why: Retrieval-augmented generation is the most common AI engineering pattern in production. Getting it right — index, retrieve, rerank, generate — is the core of the job for the next few years.
+  resource: LangChain's RAG tutorial (use as a reference, not as cargo-cult code). Then build a minimal RAG pipeline in raw Python — embed a doc set, store in Qdrant, retrieve top-k, pass to Claude.
+  success_criterion: You have a working RAG pipeline that correctly retrieves relevant chunks for at least 4 out of 5 test queries on a document you chose.
+  status: full
+
+- day: 66
+  month: 4
+  pillar: applied_llms
+  topic: RAG evaluation — where retrieval fails
+  why: Most RAG systems have low retrieval quality and no one knows because no one measured it. Knowing what to measure — recall@k, MRR, context relevance — is what separates a shipped RAG from a working one.
+  resource: RAGAS documentation (open source RAG evaluation framework) — run it on the pipeline you built yesterday. Read the metrics definitions carefully.
+  success_criterion: You can name three ways RAG retrieval fails (not generation, retrieval) and how to detect each with a metric.
+  status: full
+
+- day: 67
+  month: 4
+  pillar: applied_llms
+  topic: Hybrid search — dense and sparse
+  why: Dense retrieval (embeddings) misses exact keyword matches. Sparse retrieval (BM25) misses semantic similarity. Hybrid search combines both — it consistently outperforms either alone in production.
+  resource: Pinecone's blog post "Hybrid Search Explained." Then implement BM25 + dense retrieval with RRF fusion on your RAG pipeline from day 65.
+  success_criterion: You can explain what Reciprocal Rank Fusion does and measure whether hybrid search beats pure dense retrieval on your test queries.
+  status: full
+
+- day: 68
+  month: 4
+  pillar: applied_llms
+  topic: Re-ranking with cross-encoders
+  why: Bi-encoder retrieval is fast but imprecise. Cross-encoders re-score top-k results with full attention between query and document — expensive but much more accurate. The two-stage pipeline is standard in high-quality RAG.
+  resource: SBERT documentation on cross-encoders. Then add a cross-encoder re-ranker to your pipeline and measure the change in answer quality on 10 test queries.
+  success_criterion: You can explain why cross-encoders are too slow for first-stage retrieval and what latency budget a re-ranker adds to your pipeline.
+  status: full
+
+- day: 69
+  month: 4
+  pillar: applied_llms
+  topic: Query rewriting
+  why: User queries are often ambiguous, incomplete, or poorly phrased for retrieval. Query rewriting — expanding, clarifying, or reformulating before retrieval — is one of the highest-leverage improvements in a RAG pipeline.
+  resource: "Query Transformations" section in the LlamaIndex docs. Implement HyDE (hypothetical document embeddings) on your pipeline and measure recall change.
+  success_criterion: You can implement basic query expansion using an LLM and demonstrate that it improves retrieval recall on at least one hard query type.
+  status: full
+
+- day: 70
+  month: 4
+  pillar: applied_llms
+  topic: Multi-query and HyDE
+  why: Generating multiple query variants or a hypothetical answer document before retrieval addresses the vocabulary mismatch problem at scale. These techniques are low-cost and consistently improve recall.
+  resource: LangChain's multi-query retriever documentation + the HyDE paper (Gao et al., 2022) — abstract and section 3.
+  success_criterion: You can describe the HyDE retrieval mechanism step by step and explain why embedding a hypothetical answer can be better than embedding the question.
+  status: full
+
+- day: 71
+  month: 4
+  pillar: applied_llms
+  topic: Prompt engineering principles
+  why: Prompt engineering is the fastest way to improve a system's output quality with no infrastructure cost. Knowing the principles — not just tricks — means you can reason about new model behaviors instead of memorizing workarounds.
+  resource: Anthropic's prompt engineering guide (free, official docs). Read every section. Apply three techniques to a prompt you currently use and measure the quality difference.
+  success_criterion: You can explain why chain-of-thought prompting improves performance on reasoning tasks, and when it doesn't help.
+  status: full
+
+- day: 72
+  month: 4
+  pillar: applied_llms
+  topic: Few-shot prompting
+  why: Providing a few examples in the prompt is often the difference between a model that follows a format and one that doesn't. Knowing how example selection and ordering affect performance makes you faster at prompt iteration.
+  resource: The original GPT-3 paper (Brown et al., 2020) — section 3 on in-context learning. Then run an experiment comparing 0-shot, 3-shot, and 5-shot on a structured extraction task.
+  success_criterion: You can show empirically that few-shot examples improve output format consistency on a task where 0-shot fails.
+  status: full
+
+- day: 73
+  month: 4
+  pillar: applied_llms
+  topic: Chain of thought
+  why: Chain-of-thought prompting dramatically improves performance on multi-step reasoning tasks by having the model show its work. Understanding when and why it helps prevents misapplying it to tasks where it adds noise.
+  resource: The original CoT paper (Wei et al., 2022) — sections 1–3. Then compare CoT vs. direct answers on 10 arithmetic or logic problems.
+  success_criterion: You can describe the "let's think step by step" zero-shot CoT technique and explain under what conditions CoT improves accuracy.
+  status: full
+
+- day: 74
+  month: 4
+  pillar: applied_llms
+  topic: Structured output and function calling
+  why: Getting reliable structured JSON from an LLM is the difference between a prototype and a production system. Tool use / function calling has become the standard mechanism — you'll use it in almost every production integration.
+  resource: Anthropic's tool use documentation. Build a small extractor that takes unstructured text and returns a validated Pydantic model using Claude's tool use.
+  success_criterion: You have a working structured extraction pipeline that produces valid JSON on at least 9 out of 10 inputs without post-processing hacks.
+  status: full
+
+- day: 75
+  month: 4
+  pillar: applied_llms
+  topic: Self-consistency and ensembling LLMs
+  why: Sampling multiple responses and taking the majority answer improves accuracy on reasoning tasks, often by 10–20%. Knowing when ensembling is worth the extra cost is a practical cost-quality tradeoff decision.
+  resource: The self-consistency paper (Wang et al., 2022) — sections 1–3. Then implement majority-vote self-consistency on a reasoning task and measure the accuracy lift.
+  success_criterion: You can demonstrate that majority-vote across 5 samples outperforms a single sample on a multi-step reasoning benchmark, and estimate the cost ratio.
+  status: full
+
+- day: 76
+  month: 4
+  pillar: applied_llms
+  topic: Building your own evals
+  why: Without evals, you don't know if your changes made things better or worse. Building a small but specific eval suite is the highest-leverage engineering practice in applied LLM work.
+  resource: Hamel Husain's "Your AI Product Needs Evals" blog post. Then write 20 test cases for a real LLM feature you've built or want to build, with expected outputs.
+  success_criterion: You have a working eval harness that can score a prompt/model change in under 5 minutes, with at least 20 meaningful test cases.
+  status: full
+
+- day: 77
+  month: 4
+  pillar: applied_llms
+  topic: LLM-as-judge — setup and pitfalls
+  why: Human evaluation doesn't scale. Using an LLM to judge LLM outputs is now the standard approach for evaluation at scale — but it has systematic biases you need to know and compensate for.
+  resource: The "Judging LLM-as-a-Judge" paper (Zheng et al., 2023) — sections 1–4. Then implement a simple LLM-as-judge scorer on your eval suite from day 76.
+  success_criterion: You can name three biases LLM judges exhibit (position bias, verbosity bias, self-preference) and describe one mitigation for each.
+  status: full
+
+- day: 78
+  month: 4
+  pillar: applied_llms
+  topic: Cost engineering — token math, caching, batching
+  why: LLM API costs scale with token count and request volume. Knowing how to estimate, measure, and reduce costs is an engineering responsibility, not an afterthought — budgets for serious applications are real.
+  resource: Anthropic's pricing page + the prompt caching documentation. Calculate the cost of your morning brief bot at current pricing and find one change that reduces it by 30%.
+  success_criterion: You can estimate the monthly API cost of a system given its request volume, average prompt length, and model, with less than 20% error.
+  status: full
+
+- day: 79
+  month: 4
+  pillar: applied_llms
+  topic: Latency engineering — streaming, speculative decoding
+  why: Users perceive latency differently with streaming. Speculative decoding speeds up generation by 2–3x in some configurations. Knowing these tools is the difference between a fast and a slow LLM product.
+  resource: Anthropic's streaming documentation. Implement streaming output in a simple CLI tool. Then read the speculative decoding paper (Chen et al., 2023) — abstract and section 2.
+  success_criterion: You have a working streaming implementation and can explain why streaming improves perceived latency without reducing actual generation time.
+  status: full
+
+- day: 80
+  month: 4
+  pillar: applied_llms
+  topic: Safety, guardrails, and input/output filtering
+  why: Production LLM systems need input validation, output filtering, and jailbreak resistance. This is table stakes for anything user-facing — ignoring it is a liability, not a shortcut.
+  resource: Anthropic's safety documentation + the NeMo Guardrails GitHub README. Implement a simple input classifier that rejects off-topic queries for a hypothetical dental-AI assistant.
+  success_criterion: You have a working input filter that correctly rejects 9 out of 10 clearly off-topic inputs and passes 9 out of 10 valid inputs.
+  status: full
 
 # ════════════════════════════════════════════════════════════════════════
 # MONTH 5 — Agents & Tool Use (Days 81-100)
 # ════════════════════════════════════════════════════════════════════════
-# Goal: the frontier of where AI engineering is heading. Capstone target —
-# build an agent in your dental domain or for VeloMetrics that does
-# something real.
 
-- {day: 81, month: 5, pillar: agents, topic: The agent loop — observe-think-act, status: stub}
-- {day: 82, month: 5, pillar: agents, topic: ReAct — reasoning and acting interleaved, status: stub}
-- {day: 83, month: 5, pillar: agents, topic: Tool use at scale, status: stub}
-- {day: 84, month: 5, pillar: agents, topic: Planning — when to plan vs. react, status: stub}
-- {day: 85, month: 5, pillar: agents, topic: Task decomposition, status: stub}
-- {day: 86, month: 5, pillar: agents, topic: Memory — short-term, long-term, episodic, status: stub}
-- {day: 87, month: 5, pillar: agents, topic: Reflection — agents critiquing themselves, status: stub}
-- {day: 88, month: 5, pillar: agents, topic: Multi-agent orchestration patterns, status: stub}
-- {day: 89, month: 5, pillar: agents, topic: The MCP protocol, status: stub}
-- {day: 90, month: 5, pillar: agents, topic: Browser agents, status: stub}
-- {day: 91, month: 5, pillar: agents, topic: Code agents — copilot to autonomous, status: stub}
-- {day: 92, month: 5, pillar: agents, topic: Agent evaluation — how do you know it works, status: stub}
-- {day: 93, month: 5, pillar: agents, topic: Agent benchmarks — SWE-bench, AgentBench, status: stub}
-- {day: 94, month: 5, pillar: agents, topic: Failure modes — looping, hallucination, drift, status: stub}
-- {day: 95, month: 5, pillar: agents, topic: Cost control in agent workflows, status: stub}
-- {day: 96, month: 5, pillar: agents, topic: Streaming agent state to a UI, status: stub}
-- {day: 97, month: 5, pillar: agents, topic: Build an agent in under 100 lines, status: stub}
-- {day: 98, month: 5, pillar: agents, topic: Frameworks vs. raw — when each helps, status: stub}
-- {day: 99, month: 5, pillar: agents, topic: Production agent dissection, status: stub}
-- {day: 100, month: 5, pillar: agents, topic: Designing your own dental-domain agent, status: stub}
+- day: 81
+  month: 5
+  pillar: agents
+  topic: The agent loop — observe-think-act
+  why: The agent loop is the architectural pattern behind every autonomous AI system. Understanding the observe-think-act cycle gives you a framework for designing, debugging, and evaluating any agent.
+  resource: Lilian Weng's "LLM-powered Autonomous Agents" blog post — section 1. It's the clearest overview of the full agent stack.
+  success_criterion: You can diagram the agent loop, label each phase, and give an example of what can go wrong at each phase.
+  status: full
+
+- day: 82
+  month: 5
+  pillar: agents
+  topic: ReAct — reasoning and acting interleaved
+  why: ReAct interleaves reasoning traces with tool calls, which produces more reliable and inspectable agent behavior than pure action sequences. It's the pattern behind most production agents today.
+  resource: The ReAct paper (Yao et al., 2022) — sections 1–3. Then implement a minimal ReAct agent using Claude and a calculator tool.
+  success_criterion: You have a working ReAct agent that can solve a multi-step problem requiring at least two tool calls, with visible reasoning traces.
+  status: full
+
+- day: 83
+  month: 5
+  pillar: agents
+  topic: Tool use at scale
+  why: Real agents have many tools. Tool selection, schema design, and error handling determine whether a multi-tool agent is reliable or chaotic. These are engineering problems, not research problems.
+  resource: Anthropic's tool use best practices documentation. Then give your agent from day 82 four tools and observe how it selects among them on ambiguous tasks.
+  success_criterion: You can write a tool schema that reduces ambiguous tool selection, and demonstrate it with a test case where your improved schema beats the original.
+  status: full
+
+- day: 84
+  month: 5
+  pillar: agents
+  topic: Planning — when to plan vs. react
+  why: Some tasks need upfront planning (write a research report); others need reactive adaptation (browse and summarize live news). Knowing which to use — and how to implement both — is an architectural skill.
+  resource: The Plan-and-Solve paper (Wang et al., 2023) — sections 1–3. Compare plan-then-execute vs. ReAct on a task that benefits from planning (e.g., multi-step research).
+  success_criterion: You can describe a task where planning outperforms ReAct and explain why, based on the structure of the task.
+  status: full
+
+- day: 85
+  month: 5
+  pillar: agents
+  topic: Task decomposition
+  why: Large tasks need to be broken into steps an agent can execute reliably. How you decompose — hierarchical, sequential, or parallel — determines whether the agent succeeds or gets lost.
+  resource: LangGraph's task decomposition examples. Build an agent that takes a high-level goal and decomposes it into 3–5 executable subtasks before acting.
+  success_criterion: Your agent can decompose "analyze the cycling data for VeloMetrics and write a summary" into concrete, executable steps without hallucinating steps that aren't feasible.
+  status: full
+
+- day: 86
+  month: 5
+  pillar: agents
+  topic: Memory — short-term, long-term, episodic
+  why: Agents that can only use their context window are severely limited. Short-term (in-context), long-term (vector store), and episodic (past session logs) memory each solve a different problem.
+  resource: Lilian Weng's agent post, memory section. Then add persistent memory to your agent using a simple JSON store — have it remember facts from session to session.
+  success_criterion: Your agent can recall a fact stated in a previous session without it being present in the current context window.
+  status: full
+
+- day: 87
+  month: 5
+  pillar: agents
+  topic: Reflection — agents critiquing themselves
+  why: Self-reflection allows an agent to catch its own mistakes before committing to an action. The Reflexion paper showed this improves task completion rates significantly on coding and reasoning benchmarks.
+  resource: The Reflexion paper (Shinn et al., 2023) — sections 1–3. Add a reflection step to your agent that critiques its plan before executing it.
+  success_criterion: You can show a case where your agent's reflection step caught a mistake that the non-reflecting version would have committed.
+  status: full
+
+- day: 88
+  month: 5
+  pillar: agents
+  topic: Multi-agent orchestration patterns
+  why: Some tasks are too large or too parallel for a single agent. Knowing the orchestrator-subagent, peer-to-peer, and supervisor patterns lets you design systems that scale beyond single-thread reasoning.
+  resource: Anthropic's multi-agent documentation. Then read the AutoGen paper (Wu et al., 2023) — sections 1–3. Build a two-agent system where one agent critiques the other's output.
+  success_criterion: You have a working two-agent system where the critic agent demonstrably improves the quality of the generator agent's output.
+  status: full
+
+- day: 89
+  month: 5
+  pillar: agents
+  topic: The MCP protocol
+  why: The Model Context Protocol is becoming the standard way to expose tools and context to LLM agents. Understanding it means you can build integrations that work across agent frameworks, not just within one.
+  resource: Anthropic's MCP documentation and specification. Build a minimal MCP server that exposes one tool, and connect it to Claude.
+  success_criterion: You have a working MCP server that Claude can discover and invoke, and you can explain what the protocol handles that raw tool calling doesn't.
+  status: full
+
+- day: 90
+  month: 5
+  pillar: agents
+  topic: Browser agents
+  why: Browser agents extend AI capabilities to any web interface — scraping, form filling, navigation. They're increasingly used for automation tasks that don't have APIs, and understanding their failure modes matters.
+  resource: The WebArena paper (Zhou et al., 2023) — sections 1–3. Then run a simple browser automation task using Playwright controlled by an LLM.
+  success_criterion: You have a working browser agent that can navigate to a website, extract structured information, and return it without hardcoded selectors.
+  status: full
+
+- day: 91
+  month: 5
+  pillar: agents
+  topic: Code agents — copilot to autonomous
+  why: Code agents range from autocomplete to fully autonomous software engineers. Understanding the spectrum — and where each level breaks — is essential as coding assistants become a core part of the engineering workflow.
+  resource: The SWE-bench paper (Jimenez et al., 2023) — sections 1–3. Then build a minimal code agent that can write, run, and fix a Python function based on a failing test.
+  success_criterion: Your code agent can pass at least one failing pytest test by generating and iterating on code, without human intervention.
+  status: full
+
+- day: 92
+  month: 5
+  pillar: agents
+  topic: Agent evaluation — how do you know it works
+  why: Agent evaluation is harder than LLM evaluation — agents have multi-step trajectories, not single outputs. Knowing how to define success, measure intermediate steps, and run repeatable evals is the difference between a demo and a product.
+  resource: The AgentBench paper (Liu et al., 2023) — sections 1–3. Then define a 10-task eval suite for your agent from day 85 and run it.
+  success_criterion: You have a repeatable eval suite that scores your agent's task completion rate and you can explain what each test case is designed to catch.
+  status: full
+
+- day: 93
+  month: 5
+  pillar: agents
+  topic: Agent benchmarks — SWE-bench, AgentBench
+  why: Benchmarks set the standard for what "works" in the field. Reading them critically — what they measure, what they miss, why top scores can be misleading — makes you a sharper consumer of agent capability claims.
+  resource: The SWE-bench leaderboard (current state). Compare the top three systems on task type breakdown, not just overall score. Read any one technical report from the top 3.
+  success_criterion: You can identify two limitations of SWE-bench as a measure of real-world agent usefulness and explain why high benchmark scores don't always transfer.
+  status: full
+
+- day: 94
+  month: 5
+  pillar: agents
+  topic: Failure modes — looping, hallucination, drift
+  why: Agents fail in ways that are qualitatively different from single LLM calls — they loop, drift from the original task, or hallucinate tool outputs. Knowing the failure taxonomy helps you add the right guardrails.
+  resource: Anthropic's agent reliability documentation. Then intentionally trigger each failure mode in your agent and add a detection and recovery mechanism for at least one.
+  success_criterion: You can name five agent-specific failure modes and describe a detection method for at least three of them.
+  status: full
+
+- day: 95
+  month: 5
+  pillar: agents
+  topic: Cost control in agent workflows
+  why: Agents make many LLM calls. Without cost controls — step budgets, model routing, caching — an agent can spend 10x what a direct call would cost for the same result. This is a real production concern.
+  resource: Calculate the per-task cost of your agent from day 92 on its 10-task eval suite. Identify the two most expensive steps and find a cheaper alternative for each.
+  success_criterion: You can estimate the per-task cost of your agent and demonstrate a change that reduces it by at least 30% without meaningfully degrading task completion rate.
+  status: full
+
+- day: 96
+  month: 5
+  pillar: agents
+  topic: Streaming agent state to a UI
+  why: Users abandon agents that show a blank screen for 30 seconds. Streaming intermediate state — current step, tool being called, partial output — is the UX difference between a usable and an unusable agent.
+  resource: Anthropic's streaming documentation for multi-turn tool use. Build a simple CLI that streams each agent step as it happens, rather than waiting for completion.
+  success_criterion: Your agent UI shows each reasoning step and tool call in real time, not just the final answer.
+  status: full
+
+- day: 97
+  month: 5
+  pillar: agents
+  topic: Build an agent in under 100 lines
+  why: Frameworks add complexity. Building an agent from scratch in 100 lines forces you to understand what's essential — the loop, the tool dispatch, the context management — versus what's scaffolding.
+  resource: Build a complete agent using only the Anthropic SDK and Python standard library. No LangChain, no LlamaIndex. Target 100 lines or fewer.
+  success_criterion: You have a working agent under 100 lines that can use at least two tools and handle a multi-step task reliably.
+  status: full
+
+- day: 98
+  month: 5
+  pillar: agents
+  topic: Frameworks vs. raw — when each helps
+  why: LangChain, LlamaIndex, and LangGraph add real value for some use cases and real complexity for others. Knowing when to use a framework vs. raw SDK prevents over-engineering and under-engineering in equal measure.
+  resource: Rewrite your 100-line agent from day 97 in LangGraph. Compare the line count, readability, and debuggability. Write a one-paragraph verdict.
+  success_criterion: You can articulate a decision rule for when you'd reach for a framework vs. raw SDK, with at least two concrete criteria.
+  status: full
+
+- day: 99
+  month: 5
+  pillar: agents
+  topic: Production agent dissection
+  why: Reading a real production agent system teaches you what actually matters in deployment — error handling, observability, retry logic, cost controls — versus what tutorials gloss over.
+  resource: Read the technical blog post for one production agent (Devin, Cognition's engineering blog, or Anthropic's own Claude Agents case studies). Map its architecture to the patterns you've learned.
+  success_criterion: You can draw the architecture of the agent you read about, label each component with the pattern it implements, and identify one thing they did that surprised you.
+  status: full
+
+- day: 100
+  month: 5
+  pillar: agents
+  topic: Designing your own dental-domain agent
+  why: Month 5 capstone. Designing a real agent for the dental-AI domain forces you to apply everything — tool design, memory, planning, eval — to a concrete problem rather than toy examples.
+  resource: No external resource. Write a 1-page design document for a dental-AI agent — what it does, what tools it has, how it handles failures, how you'd evaluate it. Be specific enough that someone could build from it.
+  success_criterion: You have a design document specific enough to prototype from — including tool schemas, eval criteria, and at least one identified failure mode with a mitigation.
+  status: full
 
 # ════════════════════════════════════════════════════════════════════════
 # MONTH 6 — ML Systems & Production (Days 101-120)
 # ════════════════════════════════════════════════════════════════════════
-# Goal: where your data engineering background meets AI engineering.
-# Final capstone — an ML system design walkthrough you could deliver
-# in an interview.
 
-- {day: 101, month: 6, pillar: ml_systems, topic: ML system design framing, status: stub}
-- {day: 102, month: 6, pillar: ml_systems, topic: Serving — batch vs. real-time, status: stub}
-- {day: 103, month: 6, pillar: ml_systems, topic: Latency budgets, status: stub}
-- {day: 104, month: 6, pillar: ml_systems, topic: Caching layers in ML systems, status: stub}
-- {day: 105, month: 6, pillar: ml_systems, topic: Load balancing for LLM serving, status: stub}
-- {day: 106, month: 6, pillar: ml_systems, topic: GPU economics — self-host vs. API, status: stub}
-- {day: 107, month: 6, pillar: ml_systems, topic: Inference servers — vLLM, TGI, Triton, status: stub}
-- {day: 108, month: 6, pillar: ml_systems, topic: Monitoring the four golden signals, status: stub}
-- {day: 109, month: 6, pillar: ml_systems, topic: Drift detection — data and concept drift, status: stub}
-- {day: 110, month: 6, pillar: ml_systems, topic: A/B testing for ML, status: stub}
-- {day: 111, month: 6, pillar: ml_systems, topic: Shadow deployment and gradual rollouts, status: stub}
-- {day: 112, month: 6, pillar: ml_systems, topic: Feature stores — when you need one, status: stub}
-- {day: 113, month: 6, pillar: ml_systems, topic: Model registries and lineage, status: stub}
-- {day: 114, month: 6, pillar: ml_systems, topic: Experiment tracking, status: stub}
-- {day: 115, month: 6, pillar: ml_systems, topic: CI/CD for ML — tests that catch real problems, status: stub}
-- {day: 116, month: 6, pillar: ml_systems, topic: Data validation — Great Expectations, dbt tests, status: stub}
-- {day: 117, month: 6, pillar: ml_systems, topic: Privacy and compliance basics, status: stub}
-- {day: 118, month: 6, pillar: ml_systems, topic: Cost monitoring and anomaly detection, status: stub}
-- {day: 119, month: 6, pillar: ml_systems, topic: ML incident response, status: stub}
-- {day: 120, month: 6, pillar: ml_systems, topic: ML systems design interview — full walkthrough, status: stub}
+- day: 101
+  month: 6
+  pillar: ml_systems
+  topic: ML system design framing
+  why: ML system design interviews test whether you can scope a problem, pick an architecture, and reason about tradeoffs — not whether you know every paper. The framing skill transfers to every design decision at work.
+  resource: "Designing Machine Learning Systems" by Chip Huyen — chapter 1 (free preview). Then work through one system design question from the book's companion site.
+  success_criterion: Given a vague ML product requirement, you can scope it into a concrete system design with components, data flow, and three identified tradeoffs.
+  status: full
+
+- day: 102
+  month: 6
+  pillar: ml_systems
+  topic: Serving — batch vs. real-time
+  why: The serving architecture determines latency, cost, and infrastructure complexity. Batch serving is 10x cheaper; real-time is necessary for interactive products. Getting this choice wrong is expensive to fix.
+  resource: Chip Huyen's "Designing Machine Learning Systems" chapter on model serving (free excerpt on her site). Then diagram the serving architecture for the morning brief bot and for a hypothetical real-time dental-AI assistant.
+  success_criterion: Given a use case with specified latency requirements and request volume, you can pick batch vs. real-time serving and justify the choice quantitatively.
+  status: full
+
+- day: 103
+  month: 6
+  pillar: ml_systems
+  topic: Latency budgets
+  why: Every component of an ML system has a latency contribution — embedding, retrieval, generation, post-processing. Without a latency budget, you can't know where to optimize or when you're done.
+  resource: Google's Site Reliability Engineering book, chapter on latency (free online). Then measure and log the latency of each step in your RAG pipeline from month 4.
+  success_criterion: You have a latency breakdown of your RAG pipeline by component, and you can identify which step dominates and what would happen to p99 if you optimized it.
+  status: full
+
+- day: 104
+  month: 6
+  pillar: ml_systems
+  topic: Caching layers in ML systems
+  why: Semantic caching — returning cached results for similar queries — can reduce LLM costs by 40–70% on repetitive production workloads. Knowing when and how to cache is cost engineering in practice.
+  resource: GPTCache documentation and architecture overview. Then add a simple exact-match cache to your RAG pipeline and measure cache hit rate on a realistic query set.
+  success_criterion: You can describe the difference between exact-match and semantic caching and estimate the expected hit rate for a given query distribution.
+  status: full
+
+- day: 105
+  month: 6
+  pillar: ml_systems
+  topic: Load balancing for LLM serving
+  why: Multiple LLM API keys, model replicas, and fallback models require load balancing logic. Naive round-robin fails under rate limits; knowing the alternatives prevents production outages.
+  resource: LiteLLM documentation — it handles load balancing, fallbacks, and routing across providers. Set it up as a proxy in front of your existing Anthropic calls.
+  success_criterion: You have LiteLLM configured with at least a primary model and a fallback, and you can demonstrate automatic failover when the primary is unavailable.
+  status: full
+
+- day: 106
+  month: 6
+  pillar: ml_systems
+  topic: GPU economics — self-host vs. API
+  why: Knowing when to self-host a model vs. use an API is a real cost engineering decision. The crossover point depends on volume, latency requirements, and model size — and it moves faster than most people update their assumptions.
+  resource: Tim Dettmers' blog post on GPU memory requirements. Then build a simple cost model — at what monthly request volume does self-hosting Llama-3-8B beat Claude Haiku on cost?
+  success_criterion: You have a spreadsheet or calculation that estimates the API vs. self-host crossover for a specific model and request volume, with your assumptions stated.
+  status: full
+
+- day: 107
+  month: 6
+  pillar: ml_systems
+  topic: Inference servers — vLLM, TGI, Triton
+  why: Serving open-source models in production requires an inference server. vLLM's PagedAttention, TGI's optimized kernels, and Triton's batching are meaningfully different — choosing the right one affects throughput significantly.
+  resource: vLLM's documentation and the PagedAttention paper — introduction and section 2. Then deploy a small model locally with vLLM and measure throughput vs. naive HuggingFace generation.
+  success_criterion: You can explain what PagedAttention does for GPU memory utilization and demonstrate that vLLM achieves higher throughput than naive generation on the same hardware.
+  status: full
+
+- day: 108
+  month: 6
+  pillar: ml_systems
+  topic: Monitoring the four golden signals
+  why: Latency, traffic, errors, and saturation — these four signals catch most production ML problems before users notice. Applying them to LLM systems requires domain-specific adaptations you need to know.
+  resource: Google SRE book, chapter 6 (free). Then define specific metrics for each golden signal for the morning brief bot.
+  success_criterion: You can name a specific metric for each of the four golden signals for an LLM system and describe what threshold would trigger an alert.
+  status: full
+
+- day: 109
+  month: 6
+  pillar: ml_systems
+  topic: Drift detection — data and concept drift
+  why: ML models degrade silently as the world changes. Data drift (input distribution shift) and concept drift (label relationship change) require different detection and response strategies.
+  resource: Evidently AI's open source library documentation. Then set up a simple drift monitor on the news items fetched by the morning brief bot — flag when the topic distribution shifts significantly.
+  success_criterion: You can describe the difference between data drift and concept drift and implement a statistical test that detects one of them on a real data stream.
+  status: full
+
+- day: 110
+  month: 6
+  pillar: ml_systems
+  topic: A/B testing for ML
+  why: A/B testing LLM changes is harder than A/B testing UI changes — the metric is qualitative, sample sizes are smaller, and variance is high. Getting the experimental design right prevents false conclusions.
+  resource: Ronny Kohavi's "Trustworthy Online Controlled Experiments" — chapter 1 (free excerpt). Then design an A/B test for a prompt change in the morning brief, specifying sample size, metric, and minimum detectable effect.
+  success_criterion: You can write a complete A/B test design for an LLM change — hypothesis, primary metric, sample size calculation, and stopping criteria.
+  status: full
+
+- day: 111
+  month: 6
+  pillar: ml_systems
+  topic: Shadow deployment and gradual rollouts
+  why: Shadow mode (running a new model in parallel without serving its output) and canary releases (serving a small percentage of traffic to a new model) are how production ML changes get validated safely.
+  resource: Martin Fowler's "CanaryRelease" article. Then design a shadow deployment plan for replacing the synthesis model in the morning brief bot.
+  success_criterion: You can describe a shadow deployment plan that would validate a new model version before replacing the current one, including what metric would trigger promotion.
+  status: full
+
+- day: 112
+  month: 6
+  pillar: ml_systems
+  topic: Feature stores — when you need one
+  why: Feature stores solve the training-serving skew problem and enable feature reuse across models. But they add operational complexity — knowing when the problem justifies the solution is the real skill.
+  resource: Feast documentation introduction + Tecton's blog post "Do You Need a Feature Store?" Then assess — would a feature store help the VeloMetrics cycling analytics system? Write a one-paragraph answer.
+  success_criterion: You can describe the training-serving skew problem, explain what a feature store does to prevent it, and name two signals that a system needs one.
+  status: full
+
+- day: 113
+  month: 6
+  pillar: ml_systems
+  topic: Model registries and lineage
+  why: Without model versioning and lineage, you can't reproduce a model, roll back a bad deployment, or understand why outputs changed. Model registries are the version control system for ML artifacts.
+  resource: MLflow Model Registry documentation — the quickstart. Register the model artifact from any model you've trained this month and add metadata describing its training data and evaluation results.
+  success_criterion: You have a model registered in MLflow with version, tags, and at least one logged metric, and you can describe what lineage information you'd add before a production deployment.
+  status: full
+
+- day: 114
+  month: 6
+  pillar: ml_systems
+  topic: Experiment tracking
+  why: Experiment tracking makes ML work reproducible and comparable. Without it, you'll re-run experiments you've already run, lose the config that produced your best result, and can't explain decisions to teammates.
+  resource: Weights & Biases quickstart (free tier). Instrument any model training run from month 2 with W&B — log hyperparameters, loss curves, and final metrics.
+  success_criterion: You have a W&B project with at least three runs that are fully reproducible from the logged config alone.
+  status: full
+
+- day: 115
+  month: 6
+  pillar: ml_systems
+  topic: CI/CD for ML — tests that catch real problems
+  why: Standard software CI/CD doesn't catch ML-specific failures — silent accuracy degradation, data schema changes, or model size regressions. ML-specific tests in the pipeline are the difference between catching a bug before or after it ships.
+  resource: The "Testing Machine Learning Systems — Code, Data, and Models" paper (Breck et al., 2017) — sections 1–3. Then add one ML-specific test to a GitHub Actions workflow — a minimum accuracy threshold on a validation set.
+  success_criterion: You have a CI test that fails if a model's validation accuracy drops below a threshold, and you can explain two other ML-specific tests worth adding.
+  status: full
+
+- day: 116
+  month: 6
+  pillar: ml_systems
+  topic: Data validation — Great Expectations, dbt tests
+  why: Bad data silently corrupts ML systems more than bad models do. Data validation at ingestion catches problems before they propagate through pipelines — and you already know dbt, so the incremental lift is small.
+  resource: Great Expectations quickstart (free). Write expectations for the people.yaml and curriculum.yaml files that would catch schema violations before a run.
+  success_criterion: You have a Great Expectations suite that validates the structure of your content files and fails loudly if a required field is missing or malformed.
+  status: full
+
+- day: 117
+  month: 6
+  pillar: ml_systems
+  topic: Privacy and compliance basics
+  why: Any ML system handling user data in the EU needs GDPR compliance. Any system handling medical data needs HIPAA awareness. Knowing what questions to ask prevents building something you have to rebuild.
+  resource: The ICO's GDPR guidance for AI systems (free, UK regulator). Then audit the morning brief bot — what data does it store, how long, and what rights would a user have if this were a product?
+  success_criterion: You can conduct a basic privacy audit of a system — identify what personal data is collected, stored, and processed, and flag any obvious compliance gaps.
+  status: full
+
+- day: 118
+  month: 6
+  pillar: ml_systems
+  topic: Cost monitoring and anomaly detection
+  why: LLM API costs can spike 10x overnight from a bug, a traffic surge, or a prompt that became unexpectedly long. Real-time cost monitoring with anomaly alerts is operational hygiene for any production system.
+  resource: Set up a cost alert in your Anthropic console. Then write a Python script that reads the morning brief bot's state.json, estimates historical cost per run, and flags if today's run would exceed 2x the average.
+  success_criterion: You have a working cost anomaly detector that would have caught a 3x cost spike in the morning brief bot within one run.
+  status: full
+
+- day: 119
+  month: 6
+  pillar: ml_systems
+  topic: ML incident response
+  why: ML incidents are different from software incidents — the blast radius is harder to measure, the root cause is harder to isolate, and the fix is often a rollback plus investigation rather than a code patch.
+  resource: Google SRE book, chapter on incident management (free). Then write a one-page runbook for the morning brief bot — what to check if the brief stops sending, if quality degrades, or if costs spike.
+  success_criterion: You have a written runbook for the morning brief bot that covers the three most likely failure modes with step-by-step diagnosis and remediation.
+  status: full
+
+- day: 120
+  month: 6
+  pillar: ml_systems
+  topic: ML systems design interview — full walkthrough
+  why: Month 6 capstone. The ML systems design interview is the final gate for senior AI engineering roles. Walking through one end-to-end — from problem statement to monitoring — consolidates everything from the past six months.
+  resource: Work through the "Design a search ranking system" problem from Chip Huyen's ML systems design interview guide (free on her site). Time yourself to 45 minutes.
+  success_criterion: You can conduct a complete ML system design session for an unfamiliar problem in 45 minutes — scoping, data, modeling, serving, monitoring — and get feedback from a peer or mentor.
+  status: full
