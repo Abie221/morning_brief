@@ -422,7 +422,7 @@
   pillar: transformers_llms
   topic: Positional encoding
   why: Attention is permutation-invariant — without positional encoding, the model can't tell token order. Understanding sinusoidal and learned positional encodings explains a lot of architectural choices.
-  resource: "Attention Is All You Need" section 3.5. Then plot the sinusoidal encoding matrix to see the pattern visually.
+  resource: Attention Is All You Need, section 3.5. Then plot the sinusoidal encoding matrix to see the pattern visually.
   success_criterion: You can explain why transformers need positional encoding at all and what property sinusoidal encodings have that makes them generalizable to unseen lengths.
   status: full
 
@@ -597,7 +597,7 @@
   pillar: applied_llms
   topic: ANN algorithms — HNSW, IVF
   why: Vector databases use approximate nearest neighbor algorithms. Understanding HNSW and IVF means you can tune index parameters intelligently instead of guessing at recall vs. latency tradeoffs.
-  resource: "Billion-scale similarity search with GPUs" (Faiss paper) — introduction and section 2 only. Then read Qdrant's documentation on HNSW parameters.
+  resource: Billion-scale similarity search with GPUs (Faiss paper) — introduction and section 2 only. Then read Qdrant's documentation on HNSW parameters.
   success_criterion: You can explain what the ef_construction and m parameters in HNSW control and how they affect the recall/speed tradeoff.
   status: full
 
@@ -651,7 +651,7 @@
   pillar: applied_llms
   topic: Query rewriting
   why: User queries are often ambiguous, incomplete, or poorly phrased for retrieval. Query rewriting — expanding, clarifying, or reformulating before retrieval — is one of the highest-leverage improvements in a RAG pipeline.
-  resource: "Query Transformations" section in the LlamaIndex docs. Implement HyDE (hypothetical document embeddings) on your pipeline and measure recall change.
+  resource: Query Transformations section in the LlamaIndex docs. Implement HyDE (hypothetical document embeddings) on your pipeline and measure recall change.
   success_criterion: You can implement basic query expansion using an LLM and demonstrate that it improves retrieval recall on at least one hard query type.
   status: full
 
@@ -947,7 +947,7 @@
   pillar: ml_systems
   topic: ML system design framing
   why: ML system design interviews test whether you can scope a problem, pick an architecture, and reason about tradeoffs — not whether you know every paper. The framing skill transfers to every design decision at work.
-  resource: "Designing Machine Learning Systems" by Chip Huyen — chapter 1 (free preview). Then work through one system design question from the book's companion site.
+  resource: Designing Machine Learning Systems by Chip Huyen — chapter 1 (free preview). Then work through one system design question from the book's companion site.
   success_criterion: Given a vague ML product requirement, you can scope it into a concrete system design with components, data flow, and three identified tradeoffs.
   status: full
 
