@@ -28,7 +28,11 @@
     {
       "reply": "AI engineer - working with models like open ai, Claude and etc and building the software on top of\nML - building and working on models to improve the results. So it would be more focused and not that broad",
       "feedback": "Your reply doesn't address yesterday's concept at all. You answered a different question \u2014 AI engineer vs ML engineer \u2014 instead of explaining matrices as transformations.\n\nThe whole point of day 3 was geometric intuition: a 2\u00d72 matrix bends, rotates, or stretches space. If you can't sketch what [[2,0],[0,1]] or [[0,-1],[1,0]] does to a unit square, the concept didn't land yet.\n\nGo back to 3Blue1Brown episode 3. Then take the matrix [[1,1],[0,1]] and draw on paper where the points (1,0), (0,1), and (1,1) end up. Tell me what shape the unit square becomes."
+    },
+    {
+      "reply": "I do not understand vecor and matrix and dot product. Let's maybe cover these and let me do the exercies and after let's cover the current exercise.",
+      "feedback": "Good that you flagged the gap directly instead of bluffing. You are right to pause \u2014 matrices as transformations only makes sense once vectors and dot products feel concrete.\n\nLet's back up. Before the next session, watch 3Blue1Brown \"Essence of Linear Algebra\" episodes 1 and 2 (about 20 minutes total). Then try this: write the vector [3, 2] as a combination of [1, 0] and [0, 1]. That single idea \u2014 vectors as instructions to scale basis arrows \u2014 is the foundation everything else sits on."
     }
   ],
-  "telegram_offset": 755996231
+  "telegram_offset": 755996232
 }
