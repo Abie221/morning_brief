@@ -1,14 +1,16 @@
 {
-  "current_day": 3,
+  "current_day": 4,
   "recent_people": [
     "Carol Dweck",
-    "Richard Feynman"
+    "Richard Feynman",
+    "Ernest Shackleton"
   ],
   "recent_principles": [
     "Premeditatio malorum",
-    "Show your work"
+    "Show your work",
+    "Optionality"
   ],
-  "yesterday_topic": "Vectors and dot products",
-  "last_run": "2026-04-28T04:08:16.471407+00:00",
+  "yesterday_topic": "Matrices as transformations",
+  "last_run": "2026-04-28T07:34:08.376804+00:00",
   "replies": []
 }
