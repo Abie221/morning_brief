@@ -1,17 +1,19 @@
 {
-  "current_day": 4,
+  "current_day": 5,
   "recent_people": [
     "Carol Dweck",
     "Richard Feynman",
-    "Ernest Shackleton"
+    "Ernest Shackleton",
+    "Charlie Munger"
   ],
   "recent_principles": [
     "Premeditatio malorum",
     "Show your work",
-    "Optionality"
+    "Optionality",
+    "Sunk cost fallacy"
   ],
-  "yesterday_topic": "Matrices as transformations",
-  "last_run": "2026-04-28T07:34:08.376804+00:00",
+  "yesterday_topic": "Eigenvectors and the rest of linear algebra",
+  "last_run": "2026-04-29T05:28:11.050935+00:00",
   "replies": [
     {
       "reply": "/start",
