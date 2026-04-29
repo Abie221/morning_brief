@@ -34,7 +34,11 @@
     {
       "reply": "I do not understand vecor and matrix and dot product. Let's maybe cover these and let me do the exercies and after let's cover the current exercise.",
       "feedback": "Good that you flagged the gap directly instead of bluffing. You are right to pause \u2014 matrices as transformations only makes sense once vectors and dot products feel concrete.\n\nLet's back up. Before the next session, watch 3Blue1Brown \"Essence of Linear Algebra\" episodes 1 and 2 (about 20 minutes total). Then try this: write the vector [3, 2] as a combination of [1, 0] and [0, 1]. That single idea \u2014 vectors as instructions to scale basis arrows \u2014 is the foundation everything else sits on."
+    },
+    {
+      "reply": "Vector is basically the dynamic list or one dimensional array. \nBasically to get 3,2 vector I need to: 3*(1,0) =  3,0. And 2*(0,1) =0,2. And then I add up: 3,0 + 0,2 = 3,2 vector.",
+      "feedback": "You correctly described how a vector can be built from scaled basis vectors \u2014 that is the linear combination idea, and it matters.\n\nBut the question was about eigenvectors, and you didn't touch them. An eigenvector of a matrix A is a vector whose direction doesn't change when A is applied \u2014 it only gets stretched or squished by some scalar (the eigenvalue). That is the whole point.\n\nTry this: take the covariance matrix of a 2D dataset where points spread mostly along a diagonal. Ask yourself which direction, when you apply the covariance matrix to it, comes back pointing the same way. That direction is the first principal component. Now you can answer why PCA finds eigenvectors."
     }
   ],
-  "telegram_offset": 755996232
+  "telegram_offset": 755996233
 }
