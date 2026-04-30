@@ -1,19 +1,21 @@
 {
-  "current_day": 5,
+  "current_day": 6,
   "recent_people": [
     "Carol Dweck",
     "Richard Feynman",
     "Ernest Shackleton",
-    "Charlie Munger"
+    "Charlie Munger",
+    "Genghis Khan"
   ],
   "recent_principles": [
     "Premeditatio malorum",
     "Show your work",
     "Optionality",
-    "Sunk cost fallacy"
+    "Sunk cost fallacy",
+    "Hindsight bias"
   ],
-  "yesterday_topic": "Eigenvectors and the rest of linear algebra",
-  "last_run": "2026-04-29T05:28:11.050935+00:00",
+  "yesterday_topic": "Probability distributions you'll meet",
+  "last_run": "2026-04-30T05:31:56.683488+00:00",
   "replies": [
     {
       "reply": "/start",
