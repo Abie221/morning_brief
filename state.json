@@ -1,21 +1,23 @@
 {
-  "current_day": 6,
+  "current_day": 7,
   "recent_people": [
     "Carol Dweck",
     "Richard Feynman",
     "Ernest Shackleton",
     "Charlie Munger",
-    "Genghis Khan"
+    "Genghis Khan",
+    "Marcus Aurelius"
   ],
   "recent_principles": [
     "Premeditatio malorum",
     "Show your work",
     "Optionality",
     "Sunk cost fallacy",
-    "Hindsight bias"
+    "Hindsight bias",
+    "Gall's law"
   ],
-  "yesterday_topic": "Probability distributions you'll meet",
-  "last_run": "2026-04-30T05:31:56.683488+00:00",
+  "yesterday_topic": "Bayes' rule, deeply",
+  "last_run": "2026-05-01T05:42:49.963808+00:00",
   "replies": [
     {
       "reply": "/start",
