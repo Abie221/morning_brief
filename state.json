@@ -1,12 +1,13 @@
 {
-  "current_day": 7,
+  "current_day": 8,
   "recent_people": [
     "Carol Dweck",
     "Richard Feynman",
     "Ernest Shackleton",
     "Charlie Munger",
     "Genghis Khan",
-    "Marcus Aurelius"
+    "Marcus Aurelius",
+    "William James"
   ],
   "recent_principles": [
     "Premeditatio malorum",
@@ -14,10 +15,11 @@
     "Optionality",
     "Sunk cost fallacy",
     "Hindsight bias",
-    "Gall's law"
+    "Gall's law",
+    "Deliberate practice"
   ],
-  "yesterday_topic": "Bayes' rule, deeply",
-  "last_run": "2026-05-01T05:42:49.963808+00:00",
+  "yesterday_topic": "Information theory basics",
+  "last_run": "2026-05-02T05:12:17.402845+00:00",
   "replies": [
     {
       "reply": "/start",
