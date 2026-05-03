@@ -1,5 +1,5 @@
 {
-  "current_day": 8,
+  "current_day": 9,
   "recent_people": [
     "Carol Dweck",
     "Richard Feynman",
@@ -7,7 +7,8 @@
     "Charlie Munger",
     "Genghis Khan",
     "Marcus Aurelius",
-    "William James"
+    "William James",
+    "Charles Darwin"
   ],
   "recent_principles": [
     "Premeditatio malorum",
@@ -16,10 +17,11 @@
     "Sunk cost fallacy",
     "Hindsight bias",
     "Gall's law",
-    "Deliberate practice"
+    "Deliberate practice",
+    "One-way vs. two-way doors"
   ],
-  "yesterday_topic": "Information theory basics",
-  "last_run": "2026-05-02T05:12:17.402845+00:00",
+  "yesterday_topic": "Derivatives \u2014 what you actually need",
+  "last_run": "2026-05-03T05:31:32.969677+00:00",
   "replies": [
     {
       "reply": "/start",
