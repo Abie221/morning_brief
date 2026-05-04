@@ -1,5 +1,5 @@
 {
-  "current_day": 9,
+  "current_day": 10,
   "recent_people": [
     "Carol Dweck",
     "Richard Feynman",
@@ -8,7 +8,8 @@
     "Genghis Khan",
     "Marcus Aurelius",
     "William James",
-    "Charles Darwin"
+    "Charles Darwin",
+    "Mark Twain"
   ],
   "recent_principles": [
     "Premeditatio malorum",
@@ -18,10 +19,11 @@
     "Hindsight bias",
     "Gall's law",
     "Deliberate practice",
-    "One-way vs. two-way doors"
+    "One-way vs. two-way doors",
+    "80/20 (Pareto)"
   ],
-  "yesterday_topic": "Derivatives \u2014 what you actually need",
-  "last_run": "2026-05-03T05:31:32.969677+00:00",
+  "yesterday_topic": "The chain rule and the heart of backprop",
+  "last_run": "2026-05-04T05:35:51.495926+00:00",
   "replies": [
     {
       "reply": "/start",
