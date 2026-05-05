@@ -1,5 +1,5 @@
 {
-  "current_day": 10,
+  "current_day": 11,
   "recent_people": [
     "Carol Dweck",
     "Richard Feynman",
@@ -9,7 +9,8 @@
     "Marcus Aurelius",
     "William James",
     "Charles Darwin",
-    "Mark Twain"
+    "Mark Twain",
+    "Seneca"
   ],
   "recent_principles": [
     "Premeditatio malorum",
@@ -20,10 +21,11 @@
     "Gall's law",
     "Deliberate practice",
     "One-way vs. two-way doors",
-    "80/20 (Pareto)"
+    "80/20 (Pareto)",
+    "Deep work"
   ],
-  "yesterday_topic": "The chain rule and the heart of backprop",
-  "last_run": "2026-05-04T05:35:51.495926+00:00",
+  "yesterday_topic": "Numpy as a thinking tool",
+  "last_run": "2026-05-05T05:15:49.397934+00:00",
   "replies": [
     {
       "reply": "/start",
