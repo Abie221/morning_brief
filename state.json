@@ -1,5 +1,5 @@
 {
-  "current_day": 11,
+  "current_day": 12,
   "recent_people": [
     "Carol Dweck",
     "Richard Feynman",
@@ -10,7 +10,8 @@
     "William James",
     "Charles Darwin",
     "Mark Twain",
-    "Seneca"
+    "Seneca",
+    "Anders Ericsson"
   ],
   "recent_principles": [
     "Premeditatio malorum",
@@ -22,10 +23,11 @@
     "Deliberate practice",
     "One-way vs. two-way doors",
     "80/20 (Pareto)",
-    "Deep work"
+    "Deep work",
+    "Confirmation bias"
   ],
-  "yesterday_topic": "Numpy as a thinking tool",
-  "last_run": "2026-05-05T05:15:49.397934+00:00",
+  "yesterday_topic": "Linear regression from scratch",
+  "last_run": "2026-05-06T05:30:47.140512+00:00",
   "replies": [
     {
       "reply": "/start",
