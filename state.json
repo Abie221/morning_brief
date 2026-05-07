@@ -1,5 +1,5 @@
 {
-  "current_day": 12,
+  "current_day": 13,
   "recent_people": [
     "Carol Dweck",
     "Richard Feynman",
@@ -11,7 +11,8 @@
     "Charles Darwin",
     "Mark Twain",
     "Seneca",
-    "Anders Ericsson"
+    "Anders Ericsson",
+    "Florence Nightingale"
   ],
   "recent_principles": [
     "Premeditatio malorum",
@@ -24,10 +25,11 @@
     "One-way vs. two-way doors",
     "80/20 (Pareto)",
     "Deep work",
-    "Confirmation bias"
+    "Confirmation bias",
+    "Via negativa"
   ],
-  "yesterday_topic": "Linear regression from scratch",
-  "last_run": "2026-05-06T05:30:47.140512+00:00",
+  "yesterday_topic": "Gradient descent, intuitively",
+  "last_run": "2026-05-07T05:33:01.026427+00:00",
   "replies": [
     {
       "reply": "/start",
