@@ -1,5 +1,5 @@
 {
-  "current_day": 13,
+  "current_day": 14,
   "recent_people": [
     "Carol Dweck",
     "Richard Feynman",
@@ -12,7 +12,8 @@
     "Mark Twain",
     "Seneca",
     "Anders Ericsson",
-    "Florence Nightingale"
+    "Florence Nightingale",
+    "James Baldwin"
   ],
   "recent_principles": [
     "Premeditatio malorum",
@@ -26,10 +27,11 @@
     "80/20 (Pareto)",
     "Deep work",
     "Confirmation bias",
-    "Via negativa"
+    "Via negativa",
+    "Steelmanning"
   ],
-  "yesterday_topic": "Gradient descent, intuitively",
-  "last_run": "2026-05-07T05:33:01.026427+00:00",
+  "yesterday_topic": "Logistic regression and the sigmoid",
+  "last_run": "2026-05-08T04:54:16.513807+00:00",
   "replies": [
     {
       "reply": "/start",
