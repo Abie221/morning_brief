@@ -5,7 +5,6 @@ from typing import Optional
 
 import yaml
 
-from .news import fetch_news
 from .selectors import get_concept, pick_person, pick_principle
 from .state import load_state, save_state
 from .synthesizer import synthesize
@@ -37,15 +36,12 @@ def run(dry_run: bool = False) -> None:
             (c for c in curriculum if c.get("topic") == yesterday_topic), None
         )
 
-    news = fetch_news()
-
     brief = synthesize(
         today=date.today(),
         person=person,
         principle=principle,
         concept_today=concept_today,
         concept_yesterday=concept_yesterday,
-        news=news,
     )
 
     send(brief, dry_run=dry_run)

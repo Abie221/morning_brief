@@ -13,7 +13,6 @@ You'll receive a JSON payload at the end of this prompt:
 - `principle` — full entry from `principles.yaml`
 - `concept_today` — full entry from `curriculum.yaml` for today
 - `concept_yesterday` — yesterday's curriculum entry, or `null` on day 1
-- `news` — list of `~30` items: `[{title, summary, url, source}, ...]` — you pick 3
 
 ---
 
@@ -54,29 +53,7 @@ _From [source]._
 **For today —** [rewrite of `principle.application_seed` made specific to today. Don't recite the seed verbatim.]
 ```
 
-### Section 4 — 3 things in tech
-
-```
-**3 things in tech**
-
-**1. [Rewritten title — not the original headline]**
-What it is — [1 sentence on the substance.]
-For you — [1 sentence connecting it to ONE of: cv-au-website portfolio, VeloMetrics group cycling analytics, dental-AI exploration, his AI engineer career goal, or today's curriculum topic. Be specific — name the project or the goal.]
-
-**2. [...]**
-
-**3. [...]**
-```
-
-**Selection rules:**
-
-- Pick from `news`. Don't search elsewhere.
-- Skip anything without a strong "for you" hook. Better 2 sharp stories than 3 weak ones.
-- Prefer: technical depth, applied AI/ML, infrastructure, real engineering, system design, papers with practical impact.
-- Skip: pure drama, op-eds without a technical hook, vague trend pieces, founder Twitter beef, funding announcements without tech substance, "AI will change everything"–style takes.
-- If a "for you" connection is forced, drop the story.
-
-### Section 5 — Concept of the day
+### Section 4 — Concept of the day
 
 ```
 **Concept of the day: [topic]**
@@ -88,7 +65,7 @@ _Deeper: [resource]_
 
 **Variant for stubs:** If `concept_today.status == "stub"` (no `resource` or `why` field is filled in), generate a 200-word explanation from your training following the same shape. Skip the `_Deeper:_` line.
 
-### Section 6 — Yesterday's check
+### Section 5 — Yesterday's check
 
 ```
 **Yesterday's check**

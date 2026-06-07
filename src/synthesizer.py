@@ -16,7 +16,6 @@ def synthesize(
     principle: dict,
     concept_today: dict,
     concept_yesterday: Optional[dict],
-    news: list,
 ) -> str:
     prompt_template = PROMPT_PATH.read_text()
 
@@ -26,7 +25,6 @@ def synthesize(
         "principle": principle,
         "concept_today": concept_today,
         "concept_yesterday": concept_yesterday,
-        "news": news,
     }
 
     prompt = prompt_template.replace(

@@ -2,7 +2,7 @@ name: Morning Brief
 
 on:
   schedule:
-    - cron: "0 2 * * *"   # 07:00 Astana (UTC+5, no DST)
+    - cron: "30 4 * * *"  # 06:30 CET/Warsaw (UTC+1 winter, UTC+2 summer — arrives 06:30 in summer)
   workflow_dispatch:       # manual trigger from GitHub UI
 
 permissions:
